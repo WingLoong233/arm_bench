@@ -33,6 +33,9 @@ do
     cmd_line="${work_dir}/${bench_name}"
     cd $work_dir
     repeats=3
+    start_time=$(date +%s)
     perf_cmd ${repeats} ${log_dir} -1 ${cmd_line}
+    end_time=$(date +%s)
+    execution_time=$((end_time - start_time))
 done
 python3 ${root_dir}/parse_perf_stat_westmere.py

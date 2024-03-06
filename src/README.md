@@ -1,7 +1,7 @@
 ## 1. 测量基本块的各项指标
 
 ```shell
-sh run_basic_block.sh
+bash run_basic_block.sh
 # 4类基本块，对应目录分别为test_load_store2,test_icache_iTLB,test_branch_miss,test_cpi2
 # 运行结果的perf原始数据保存在{}/restuls,处理过的版本保存在{}/parse/perf-post.csv
 ```
