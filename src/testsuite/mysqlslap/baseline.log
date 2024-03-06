@@ -1,0 +1,182 @@
+pidof mysqld: 36472
+mysqld stopped
+
+=================================================
+[33m case=normal, nq=100000, concurrency=100, iterations=1 [0m
+=================================================
+
+/home/yangyuxuan/from-yang-yikang/testsuite/mysql/test_cases/slap
+no mysqld running
+2023-08-23T04:21:35.806594Z 0 [Warning] [MY-000081] [Server] option 'max_prepared_stmt_count': unsigned value 10000000 adjusted to 4194304.
+2023-08-23T04:21:35.807312Z 0 [System] [MY-013169] [Server] /home/yangyuxuan/from-yang-yikang/testsuite/mysql/mysql-8.0.22/install_baseline/bin/mysqld (mysqld 8.0.22) initializing of server in progress as process 39361
+2023-08-23T04:21:35.873428Z 1 [System] [MY-013576] [InnoDB] InnoDB initialization has started.
+2023-08-23T04:21:47.567047Z 1 [System] [MY-013577] [InnoDB] InnoDB initialization has ended.
+2023-08-23T04:22:15.886308Z 6 [Warning] [MY-010453] [Server] root@localhost is created with an empty password ! Please consider switching off the --initialize-insecure option.
+2023-08-23T04:22:49.756444Z 0 [Warning] [MY-000081] [Server] option 'max_prepared_stmt_count': unsigned value 10000000 adjusted to 4194304.
+2023-08-23T04:22:49.904479Z 0 [Warning] [MY-010099] [Server] Insecure configuration for --secure-file-priv: Data directory is accessible through --secure-file-priv. Consider choosing a different directory.
+2023-08-23T04:22:49.904532Z 0 [System] [MY-010116] [Server] /home/yangyuxuan/from-yang-yikang/testsuite/mysql/mysql-8.0.22/install_baseline/bin/mysqld (mysqld 8.0.22) starting as process 39591
+2023-08-23T04:22:49.923444Z 1 [System] [MY-013576] [InnoDB] InnoDB initialization has started.
+2023-08-23T04:23:02.723784Z 1 [System] [MY-013577] [InnoDB] InnoDB initialization has ended.
+2023-08-23T04:23:06.951357Z 0 [System] [MY-011323] [Server] X Plugin ready for connections. Bind-address: '::' port: 31001, socket: /home/yangyuxuan/from-yang-yikang/testsuite/mysql/test_cases/slap/../../tmp/mysqlx_30009.sock
+2023-08-23T04:23:09.201745Z 0 [Warning] [MY-010068] [Server] CA certificate ca.pem is self signed.
+2023-08-23T04:23:09.201978Z 0 [System] [MY-013602] [Server] Channel mysql_main configured to support TLS. Encrypted connections are now supported for this channel.
+2023-08-23T04:23:09.984399Z 0 [System] [MY-010931] [Server] /home/yangyuxuan/from-yang-yikang/testsuite/mysql/mysql-8.0.22/install_baseline/bin/mysqld: ready for connections. Version: '8.0.22'  socket: '/home/yangyuxuan/from-yang-yikang/testsuite/mysql/test_cases/slap/../../tmp/mysql_30009.sock'  port: 30009  Source distribution.
+create table
+store data
++ eval '(time perf stat -r 1         -e '\''instructions,cycles,cycles:u,cycles:k'\''         -e '\''r22,r21,branch-load-misses,branch-loads'\''         -e '\''L1-dcache-load-misses,L1-dcache-loads'\''         -e '\''L1-icache-load-misses,L1-icache-loads'\''         -e '\''r17,r16,r2A,r2B,r37,r36'\''         -e '\''dTLB-load-misses,dTLB-loads'\''         -e '\''iTLB-load-misses,iTLB-loads'\''         -e '\''r2D,r2F'\''         -e '\''r70,r71,r73,r75,r74'\''         -o ${perf_log_dir}/perf.out         -p ${process_id}          ./mysqlslap --no-defaults  --create-schema="mysql_parti" --host=127.0.0.1 --user=test --password=123         --port=30009 --concurrency=100 --engine=innodb --iterations=1 --number-of-queries=${nq}          --query="call insert_into_${c}();" ) > ${perf_log_dir}/run.perf.log 2> ${perf_log_dir}/run.perf.err'
++ sleep 5
++ set +x
+pidof mysqld: 39591
+2023-08-23T06:16:08.721966Z 112 [System] [MY-013172] [Server] Received SHUTDOWN from user root. Shutting down mysqld (Version: 8.0.22).
+2023-08-23T06:16:25.012083Z 0 [System] [MY-010910] [Server] /home/yangyuxuan/from-yang-yikang/testsuite/mysql/mysql-8.0.22/install_baseline/bin/mysqld: Shutdown complete (mysqld 8.0.22)  Source distribution.
+mysqld stopped
+
+=================================================
+[33m case=normal, nq=200000, concurrency=100, iterations=1 [0m
+=================================================
+
+/home/yangyuxuan/from-yang-yikang/testsuite/mysql/test_cases/slap
+no mysqld running
+2023-08-23T06:16:25.829553Z 0 [Warning] [MY-000081] [Server] option 'max_prepared_stmt_count': unsigned value 10000000 adjusted to 4194304.
+2023-08-23T06:16:25.830304Z 0 [System] [MY-013169] [Server] /home/yangyuxuan/from-yang-yikang/testsuite/mysql/mysql-8.0.22/install_baseline/bin/mysqld (mysqld 8.0.22) initializing of server in progress as process 46455
+2023-08-23T06:16:25.860337Z 1 [System] [MY-013576] [InnoDB] InnoDB initialization has started.
+2023-08-23T06:16:32.163709Z 1 [System] [MY-013577] [InnoDB] InnoDB initialization has ended.
+2023-08-23T06:16:46.950612Z 6 [Warning] [MY-010453] [Server] root@localhost is created with an empty password ! Please consider switching off the --initialize-insecure option.
+2023-08-23T06:17:09.571564Z 0 [Warning] [MY-000081] [Server] option 'max_prepared_stmt_count': unsigned value 10000000 adjusted to 4194304.
+2023-08-23T06:17:09.684492Z 0 [Warning] [MY-010099] [Server] Insecure configuration for --secure-file-priv: Data directory is accessible through --secure-file-priv. Consider choosing a different directory.
+2023-08-23T06:17:09.684546Z 0 [System] [MY-010116] [Server] /home/yangyuxuan/from-yang-yikang/testsuite/mysql/mysql-8.0.22/install_baseline/bin/mysqld (mysqld 8.0.22) starting as process 46663
+2023-08-23T06:17:09.691499Z 1 [System] [MY-013576] [InnoDB] InnoDB initialization has started.
+2023-08-23T06:17:11.000532Z 1 [System] [MY-013577] [InnoDB] InnoDB initialization has ended.
+2023-08-23T06:17:11.458878Z 0 [System] [MY-011323] [Server] X Plugin ready for connections. Bind-address: '::' port: 31001, socket: /home/yangyuxuan/from-yang-yikang/testsuite/mysql/test_cases/slap/../../tmp/mysqlx_30009.sock
+2023-08-23T06:17:12.159989Z 0 [Warning] [MY-010068] [Server] CA certificate ca.pem is self signed.
+2023-08-23T06:17:12.160215Z 0 [System] [MY-013602] [Server] Channel mysql_main configured to support TLS. Encrypted connections are now supported for this channel.
+2023-08-23T06:17:12.360512Z 0 [System] [MY-010931] [Server] /home/yangyuxuan/from-yang-yikang/testsuite/mysql/mysql-8.0.22/install_baseline/bin/mysqld: ready for connections. Version: '8.0.22'  socket: '/home/yangyuxuan/from-yang-yikang/testsuite/mysql/test_cases/slap/../../tmp/mysql_30009.sock'  port: 30009  Source distribution.
+create table
+store data
++ eval '(time perf stat -r 1         -e '\''instructions,cycles,cycles:u,cycles:k'\''         -e '\''r22,r21,branch-load-misses,branch-loads'\''         -e '\''L1-dcache-load-misses,L1-dcache-loads'\''         -e '\''L1-icache-load-misses,L1-icache-loads'\''         -e '\''r17,r16,r2A,r2B,r37,r36'\''         -e '\''dTLB-load-misses,dTLB-loads'\''         -e '\''iTLB-load-misses,iTLB-loads'\''         -e '\''r2D,r2F'\''         -e '\''r70,r71,r73,r75,r74'\''         -o ${perf_log_dir}/perf.out         -p ${process_id}          ./mysqlslap --no-defaults  --create-schema="mysql_parti" --host=127.0.0.1 --user=test --password=123         --port=30009 --concurrency=100 --engine=innodb --iterations=1 --number-of-queries=${nq}          --query="call insert_into_${c}();" ) > ${perf_log_dir}/run.perf.log 2> ${perf_log_dir}/run.perf.err'
++ sleep 5
++ set +x
+pidof mysqld: 46663
+2023-08-23T10:56:01.120605Z 112 [System] [MY-013172] [Server] Received SHUTDOWN from user root. Shutting down mysqld (Version: 8.0.22).
+2023-08-23T10:56:20.336176Z 0 [System] [MY-010910] [Server] /home/yangyuxuan/from-yang-yikang/testsuite/mysql/mysql-8.0.22/install_baseline/bin/mysqld: Shutdown complete (mysqld 8.0.22)  Source distribution.
+mysqld stopped
+
+=================================================
+[33m case=normal, nq=300000, concurrency=100, iterations=1 [0m
+=================================================
+
+/home/yangyuxuan/from-yang-yikang/testsuite/mysql/test_cases/slap
+no mysqld running
+2023-08-23T10:56:21.244001Z 0 [Warning] [MY-000081] [Server] option 'max_prepared_stmt_count': unsigned value 10000000 adjusted to 4194304.
+2023-08-23T10:56:21.244707Z 0 [System] [MY-013169] [Server] /home/yangyuxuan/from-yang-yikang/testsuite/mysql/mysql-8.0.22/install_baseline/bin/mysqld (mysqld 8.0.22) initializing of server in progress as process 62355
+2023-08-23T10:56:21.270760Z 1 [System] [MY-013576] [InnoDB] InnoDB initialization has started.
+2023-08-23T10:56:28.299049Z 1 [System] [MY-013577] [InnoDB] InnoDB initialization has ended.
+2023-08-23T10:56:39.150727Z 6 [Warning] [MY-010453] [Server] root@localhost is created with an empty password ! Please consider switching off the --initialize-insecure option.
+2023-08-23T10:56:58.890689Z 0 [Warning] [MY-000081] [Server] option 'max_prepared_stmt_count': unsigned value 10000000 adjusted to 4194304.
+2023-08-23T10:56:59.004622Z 0 [Warning] [MY-010099] [Server] Insecure configuration for --secure-file-priv: Data directory is accessible through --secure-file-priv. Consider choosing a different directory.
+2023-08-23T10:56:59.004685Z 0 [System] [MY-010116] [Server] /home/yangyuxuan/from-yang-yikang/testsuite/mysql/mysql-8.0.22/install_baseline/bin/mysqld (mysqld 8.0.22) starting as process 62540
+2023-08-23T10:56:59.011881Z 1 [System] [MY-013576] [InnoDB] InnoDB initialization has started.
+2023-08-23T10:57:00.273151Z 1 [System] [MY-013577] [InnoDB] InnoDB initialization has ended.
+2023-08-23T10:57:00.596272Z 0 [System] [MY-011323] [Server] X Plugin ready for connections. Bind-address: '::' port: 31001, socket: /home/yangyuxuan/from-yang-yikang/testsuite/mysql/test_cases/slap/../../tmp/mysqlx_30009.sock
+2023-08-23T10:57:01.097267Z 0 [Warning] [MY-010068] [Server] CA certificate ca.pem is self signed.
+2023-08-23T10:57:01.097496Z 0 [System] [MY-013602] [Server] Channel mysql_main configured to support TLS. Encrypted connections are now supported for this channel.
+2023-08-23T10:57:01.167981Z 0 [System] [MY-010931] [Server] /home/yangyuxuan/from-yang-yikang/testsuite/mysql/mysql-8.0.22/install_baseline/bin/mysqld: ready for connections. Version: '8.0.22'  socket: '/home/yangyuxuan/from-yang-yikang/testsuite/mysql/test_cases/slap/../../tmp/mysql_30009.sock'  port: 30009  Source distribution.
+create table
+store data
++ eval '(time perf stat -r 1         -e '\''instructions,cycles,cycles:u,cycles:k'\''         -e '\''r22,r21,branch-load-misses,branch-loads'\''         -e '\''L1-dcache-load-misses,L1-dcache-loads'\''         -e '\''L1-icache-load-misses,L1-icache-loads'\''         -e '\''r17,r16,r2A,r2B,r37,r36'\''         -e '\''dTLB-load-misses,dTLB-loads'\''         -e '\''iTLB-load-misses,iTLB-loads'\''         -e '\''r2D,r2F'\''         -e '\''r70,r71,r73,r75,r74'\''         -o ${perf_log_dir}/perf.out         -p ${process_id}          ./mysqlslap --no-defaults  --create-schema="mysql_parti" --host=127.0.0.1 --user=test --password=123         --port=30009 --concurrency=100 --engine=innodb --iterations=1 --number-of-queries=${nq}          --query="call insert_into_${c}();" ) > ${perf_log_dir}/run.perf.log 2> ${perf_log_dir}/run.perf.err'
++ sleep 5
++ set +x
+pidof mysqld: 62540
+2023-08-23T15:31:49.930353Z 112 [System] [MY-013172] [Server] Received SHUTDOWN from user root. Shutting down mysqld (Version: 8.0.22).
+2023-08-23T15:32:10.731037Z 0 [System] [MY-010910] [Server] /home/yangyuxuan/from-yang-yikang/testsuite/mysql/mysql-8.0.22/install_baseline/bin/mysqld: Shutdown complete (mysqld 8.0.22)  Source distribution.
+mysqld stopped
+
+=================================================
+[33m case=partition, nq=100000, concurrency=100, iterations=1 [0m
+=================================================
+
+/home/yangyuxuan/from-yang-yikang/testsuite/mysql/test_cases/slap
+no mysqld running
+2023-08-23T15:32:11.035235Z 0 [Warning] [MY-000081] [Server] option 'max_prepared_stmt_count': unsigned value 10000000 adjusted to 4194304.
+2023-08-23T15:32:11.035888Z 0 [System] [MY-013169] [Server] /home/yangyuxuan/from-yang-yikang/testsuite/mysql/mysql-8.0.22/install_baseline/bin/mysqld (mysqld 8.0.22) initializing of server in progress as process 13943
+2023-08-23T15:32:11.062445Z 1 [System] [MY-013576] [InnoDB] InnoDB initialization has started.
+2023-08-23T15:32:17.583013Z 1 [System] [MY-013577] [InnoDB] InnoDB initialization has ended.
+2023-08-23T15:32:33.608739Z 6 [Warning] [MY-010453] [Server] root@localhost is created with an empty password ! Please consider switching off the --initialize-insecure option.
+2023-08-23T15:32:56.939988Z 0 [Warning] [MY-000081] [Server] option 'max_prepared_stmt_count': unsigned value 10000000 adjusted to 4194304.
+2023-08-23T15:32:57.054309Z 0 [Warning] [MY-010099] [Server] Insecure configuration for --secure-file-priv: Data directory is accessible through --secure-file-priv. Consider choosing a different directory.
+2023-08-23T15:32:57.054355Z 0 [System] [MY-010116] [Server] /home/yangyuxuan/from-yang-yikang/testsuite/mysql/mysql-8.0.22/install_baseline/bin/mysqld (mysqld 8.0.22) starting as process 14133
+2023-08-23T15:32:57.060644Z 1 [System] [MY-013576] [InnoDB] InnoDB initialization has started.
+2023-08-23T15:32:58.303730Z 1 [System] [MY-013577] [InnoDB] InnoDB initialization has ended.
+2023-08-23T15:32:58.693478Z 0 [System] [MY-011323] [Server] X Plugin ready for connections. Bind-address: '::' port: 31001, socket: /home/yangyuxuan/from-yang-yikang/testsuite/mysql/test_cases/slap/../../tmp/mysqlx_30009.sock
+2023-08-23T15:32:59.277691Z 0 [Warning] [MY-010068] [Server] CA certificate ca.pem is self signed.
+2023-08-23T15:32:59.277912Z 0 [System] [MY-013602] [Server] Channel mysql_main configured to support TLS. Encrypted connections are now supported for this channel.
+2023-08-23T15:32:59.402981Z 0 [System] [MY-010931] [Server] /home/yangyuxuan/from-yang-yikang/testsuite/mysql/mysql-8.0.22/install_baseline/bin/mysqld: ready for connections. Version: '8.0.22'  socket: '/home/yangyuxuan/from-yang-yikang/testsuite/mysql/test_cases/slap/../../tmp/mysql_30009.sock'  port: 30009  Source distribution.
+create table
+store data
++ eval '(time perf stat -r 1         -e '\''instructions,cycles,cycles:u,cycles:k'\''         -e '\''r22,r21,branch-load-misses,branch-loads'\''         -e '\''L1-dcache-load-misses,L1-dcache-loads'\''         -e '\''L1-icache-load-misses,L1-icache-loads'\''         -e '\''r17,r16,r2A,r2B,r37,r36'\''         -e '\''dTLB-load-misses,dTLB-loads'\''         -e '\''iTLB-load-misses,iTLB-loads'\''         -e '\''r2D,r2F'\''         -e '\''r70,r71,r73,r75,r74'\''         -o ${perf_log_dir}/perf.out         -p ${process_id}          ./mysqlslap --no-defaults  --create-schema="mysql_parti" --host=127.0.0.1 --user=test --password=123         --port=30009 --concurrency=100 --engine=innodb --iterations=1 --number-of-queries=${nq}          --query="call insert_into_${c}();" ) > ${perf_log_dir}/run.perf.log 2> ${perf_log_dir}/run.perf.err'
++ sleep 5
++ set +x
+pidof mysqld: 14133
+2023-08-23T17:52:14.355308Z 112 [System] [MY-013172] [Server] Received SHUTDOWN from user root. Shutting down mysqld (Version: 8.0.22).
+2023-08-23T17:52:29.978682Z 0 [System] [MY-010910] [Server] /home/yangyuxuan/from-yang-yikang/testsuite/mysql/mysql-8.0.22/install_baseline/bin/mysqld: Shutdown complete (mysqld 8.0.22)  Source distribution.
+mysqld stopped
+
+=================================================
+[33m case=partition, nq=200000, concurrency=100, iterations=1 [0m
+=================================================
+
+/home/yangyuxuan/from-yang-yikang/testsuite/mysql/test_cases/slap
+no mysqld running
+2023-08-23T17:52:30.449591Z 0 [Warning] [MY-000081] [Server] option 'max_prepared_stmt_count': unsigned value 10000000 adjusted to 4194304.
+2023-08-23T17:52:30.450247Z 0 [System] [MY-013169] [Server] /home/yangyuxuan/from-yang-yikang/testsuite/mysql/mysql-8.0.22/install_baseline/bin/mysqld (mysqld 8.0.22) initializing of server in progress as process 22552
+2023-08-23T17:52:30.469757Z 1 [System] [MY-013576] [InnoDB] InnoDB initialization has started.
+2023-08-23T17:52:36.432441Z 1 [System] [MY-013577] [InnoDB] InnoDB initialization has ended.
+2023-08-23T17:52:52.364081Z 6 [Warning] [MY-010453] [Server] root@localhost is created with an empty password ! Please consider switching off the --initialize-insecure option.
+2023-08-23T17:53:15.520370Z 0 [Warning] [MY-000081] [Server] option 'max_prepared_stmt_count': unsigned value 10000000 adjusted to 4194304.
+2023-08-23T17:53:15.644355Z 0 [Warning] [MY-010099] [Server] Insecure configuration for --secure-file-priv: Data directory is accessible through --secure-file-priv. Consider choosing a different directory.
+2023-08-23T17:53:15.644405Z 0 [System] [MY-010116] [Server] /home/yangyuxuan/from-yang-yikang/testsuite/mysql/mysql-8.0.22/install_baseline/bin/mysqld (mysqld 8.0.22) starting as process 22741
+2023-08-23T17:53:15.650838Z 1 [System] [MY-013576] [InnoDB] InnoDB initialization has started.
+2023-08-23T17:53:17.011070Z 1 [System] [MY-013577] [InnoDB] InnoDB initialization has ended.
+2023-08-23T17:53:17.356930Z 0 [System] [MY-011323] [Server] X Plugin ready for connections. Bind-address: '::' port: 31001, socket: /home/yangyuxuan/from-yang-yikang/testsuite/mysql/test_cases/slap/../../tmp/mysqlx_30009.sock
+2023-08-23T17:53:18.032928Z 0 [Warning] [MY-010068] [Server] CA certificate ca.pem is self signed.
+2023-08-23T17:53:18.033152Z 0 [System] [MY-013602] [Server] Channel mysql_main configured to support TLS. Encrypted connections are now supported for this channel.
+2023-08-23T17:53:18.096590Z 0 [System] [MY-010931] [Server] /home/yangyuxuan/from-yang-yikang/testsuite/mysql/mysql-8.0.22/install_baseline/bin/mysqld: ready for connections. Version: '8.0.22'  socket: '/home/yangyuxuan/from-yang-yikang/testsuite/mysql/test_cases/slap/../../tmp/mysql_30009.sock'  port: 30009  Source distribution.
+create table
+store data
++ eval '(time perf stat -r 1         -e '\''instructions,cycles,cycles:u,cycles:k'\''         -e '\''r22,r21,branch-load-misses,branch-loads'\''         -e '\''L1-dcache-load-misses,L1-dcache-loads'\''         -e '\''L1-icache-load-misses,L1-icache-loads'\''         -e '\''r17,r16,r2A,r2B,r37,r36'\''         -e '\''dTLB-load-misses,dTLB-loads'\''         -e '\''iTLB-load-misses,iTLB-loads'\''         -e '\''r2D,r2F'\''         -e '\''r70,r71,r73,r75,r74'\''         -o ${perf_log_dir}/perf.out         -p ${process_id}          ./mysqlslap --no-defaults  --create-schema="mysql_parti" --host=127.0.0.1 --user=test --password=123         --port=30009 --concurrency=100 --engine=innodb --iterations=1 --number-of-queries=${nq}          --query="call insert_into_${c}();" ) > ${perf_log_dir}/run.perf.log 2> ${perf_log_dir}/run.perf.err'
++ sleep 5
++ set +x
+pidof mysqld: 22741
+2023-08-23T23:00:07.803606Z 112 [System] [MY-013172] [Server] Received SHUTDOWN from user root. Shutting down mysqld (Version: 8.0.22).
+2023-08-23T23:00:28.605645Z 0 [System] [MY-010910] [Server] /home/yangyuxuan/from-yang-yikang/testsuite/mysql/mysql-8.0.22/install_baseline/bin/mysqld: Shutdown complete (mysqld 8.0.22)  Source distribution.
+mysqld stopped
+
+=================================================
+[33m case=partition, nq=300000, concurrency=100, iterations=1 [0m
+=================================================
+
+/home/yangyuxuan/from-yang-yikang/testsuite/mysql/test_cases/slap
+no mysqld running
+2023-08-23T23:00:28.905877Z 0 [Warning] [MY-000081] [Server] option 'max_prepared_stmt_count': unsigned value 10000000 adjusted to 4194304.
+2023-08-23T23:00:28.906508Z 0 [System] [MY-013169] [Server] /home/yangyuxuan/from-yang-yikang/testsuite/mysql/mysql-8.0.22/install_baseline/bin/mysqld (mysqld 8.0.22) initializing of server in progress as process 39382
+2023-08-23T23:00:28.935416Z 1 [System] [MY-013576] [InnoDB] InnoDB initialization has started.
+2023-08-23T23:00:35.897387Z 1 [System] [MY-013577] [InnoDB] InnoDB initialization has ended.
+2023-08-23T23:00:50.223058Z 6 [Warning] [MY-010453] [Server] root@localhost is created with an empty password ! Please consider switching off the --initialize-insecure option.
+2023-08-23T23:01:14.680179Z 0 [Warning] [MY-000081] [Server] option 'max_prepared_stmt_count': unsigned value 10000000 adjusted to 4194304.
+2023-08-23T23:01:14.794289Z 0 [Warning] [MY-010099] [Server] Insecure configuration for --secure-file-priv: Data directory is accessible through --secure-file-priv. Consider choosing a different directory.
+2023-08-23T23:01:14.794334Z 0 [System] [MY-010116] [Server] /home/yangyuxuan/from-yang-yikang/testsuite/mysql/mysql-8.0.22/install_baseline/bin/mysqld (mysqld 8.0.22) starting as process 39603
+2023-08-23T23:01:14.800734Z 1 [System] [MY-013576] [InnoDB] InnoDB initialization has started.
+2023-08-23T23:01:16.271995Z 1 [System] [MY-013577] [InnoDB] InnoDB initialization has ended.
+2023-08-23T23:01:16.624412Z 0 [System] [MY-011323] [Server] X Plugin ready for connections. Bind-address: '::' port: 31001, socket: /home/yangyuxuan/from-yang-yikang/testsuite/mysql/test_cases/slap/../../tmp/mysqlx_30009.sock
+2023-08-23T23:01:17.500697Z 0 [Warning] [MY-010068] [Server] CA certificate ca.pem is self signed.
+2023-08-23T23:01:17.500911Z 0 [System] [MY-013602] [Server] Channel mysql_main configured to support TLS. Encrypted connections are now supported for this channel.
+2023-08-23T23:01:17.563313Z 0 [System] [MY-010931] [Server] /home/yangyuxuan/from-yang-yikang/testsuite/mysql/mysql-8.0.22/install_baseline/bin/mysqld: ready for connections. Version: '8.0.22'  socket: '/home/yangyuxuan/from-yang-yikang/testsuite/mysql/test_cases/slap/../../tmp/mysql_30009.sock'  port: 30009  Source distribution.
+create table
+store data
++ eval '(time perf stat -r 1         -e '\''instructions,cycles,cycles:u,cycles:k'\''         -e '\''r22,r21,branch-load-misses,branch-loads'\''         -e '\''L1-dcache-load-misses,L1-dcache-loads'\''         -e '\''L1-icache-load-misses,L1-icache-loads'\''         -e '\''r17,r16,r2A,r2B,r37,r36'\''         -e '\''dTLB-load-misses,dTLB-loads'\''         -e '\''iTLB-load-misses,iTLB-loads'\''         -e '\''r2D,r2F'\''         -e '\''r70,r71,r73,r75,r74'\''         -o ${perf_log_dir}/perf.out         -p ${process_id}          ./mysqlslap --no-defaults  --create-schema="mysql_parti" --host=127.0.0.1 --user=test --password=123         --port=30009 --concurrency=100 --engine=innodb --iterations=1 --number-of-queries=${nq}          --query="call insert_into_${c}();" ) > ${perf_log_dir}/run.perf.log 2> ${perf_log_dir}/run.perf.err'
++ sleep 5
++ set +x
+pidof mysqld: 39603
+2023-08-24T05:21:29.004709Z 112 [System] [MY-013172] [Server] Received SHUTDOWN from user root. Shutting down mysqld (Version: 8.0.22).
+2023-08-24T05:21:57.431311Z 0 [System] [MY-010910] [Server] /home/yangyuxuan/from-yang-yikang/testsuite/mysql/mysql-8.0.22/install_baseline/bin/mysqld: Shutdown complete (mysqld 8.0.22)  Source distribution.
+mysqld stopped

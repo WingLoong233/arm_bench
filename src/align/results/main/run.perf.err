@@ -1,0 +1,5 @@
++ perf stat -r 3 -e r70,r71,r73,r75,r74 -o /home/yangyuxuan/arm_bench/src/align/results/main//sub_perf4.out /home/yangyuxuan/arm_bench/src/align/main
+
+real	0m0.633s
+user	0m0.590s
+sys	0m0.043s

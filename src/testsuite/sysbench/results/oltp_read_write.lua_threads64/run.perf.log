@@ -1,0 +1,90 @@
+sysbench 1.1.0 (using bundled LuaJIT 2.1.0-beta3)
+
+Running the test with following options:
+Number of threads: 64
+Warmup time: 10s
+Report intermediate results every 20 second(s)
+Initializing random number generator from current time
+
+
+Initializing worker threads...
+
+Threads started!
+
+Warming up for 10 seconds...
+
+[ 20s ] thds: 64 tps: 254.49 qps: 5130.31 (r/w/o: 3592.71/1026.49/511.11) lat (ms,95%): 502.20 err/s: 0.00 reconn/s: 0.00
+[ 40s ] thds: 64 tps: 281.35 qps: 5620.90 (r/w/o: 3938.90/1119.30/562.70) lat (ms,95%): 369.77 err/s: 0.00 reconn/s: 0.00
+[ 60s ] thds: 64 tps: 282.75 qps: 5661.08 (r/w/o: 3958.49/1137.10/565.50) lat (ms,95%): 450.77 err/s: 0.00 reconn/s: 0.00
+SQL statistics:
+    queries performed:
+        read:                            225708
+        write:                           64491
+        other:                           32308
+        total:                           322507
+    transactions:                        16186  (269.23 per sec.)
+    queries:                             322507 (5364.42 per sec.)
+    ignored errors:                      0      (0.00 per sec.)
+    reconnects:                          0      (0.00 per sec.)
+
+Throughput:
+    events/s (eps):                      269.2298
+    time elapsed:                        60.1225s
+    total number of events:              16186
+
+Latency (ms):
+         min:                                   75.08
+         avg:                                  238.06
+         max:                                  881.44
+         95th percentile:                      475.79
+         sum:                              3853262.83
+
+Threads fairness:
+    events (avg/stddev):           252.9062/2.41
+    execution time (avg/stddev):   60.2072/0.02
+
+sysbench 1.1.0 (using bundled LuaJIT 2.1.0-beta3)
+
+Running the test with following options:
+Number of threads: 64
+Warmup time: 10s
+Report intermediate results every 20 second(s)
+Initializing random number generator from current time
+
+
+Initializing worker threads...
+
+Threads started!
+
+Warming up for 10 seconds...
+
+[ 20s ] thds: 64 tps: 490.21 qps: 9844.79 (r/w/o: 6892.85/1969.38/982.56) lat (ms,95%): 158.63 err/s: 0.00 reconn/s: 0.00
+[ 40s ] thds: 64 tps: 520.25 qps: 10405.00 (r/w/o: 7283.50/2081.00/1040.50) lat (ms,95%): 158.63 err/s: 0.00 reconn/s: 0.00
+[ 60s ] thds: 64 tps: 513.60 qps: 10267.79 (r/w/o: 7189.60/2051.00/1027.20) lat (ms,95%): 167.44 err/s: 0.00 reconn/s: 0.00
+SQL statistics:
+    queries performed:
+        read:                            434182
+        write:                           124052
+        other:                           62090
+        total:                           620324
+    transactions:                        31077  (516.59 per sec.)
+    queries:                             620324 (10311.68 per sec.)
+    ignored errors:                      0      (0.00 per sec.)
+    reconnects:                          0      (0.00 per sec.)
+
+Throughput:
+    events/s (eps):                      516.5949
+    time elapsed:                        60.1585s
+    total number of events:              31077
+
+Latency (ms):
+         min:                                   58.27
+         avg:                                  124.08
+         max:                                  268.10
+         95th percentile:                      161.51
+         sum:                              3856100.78
+
+Threads fairness:
+    events (avg/stddev):           485.5781/3.98
+    execution time (avg/stddev):   60.2516/0.01
+

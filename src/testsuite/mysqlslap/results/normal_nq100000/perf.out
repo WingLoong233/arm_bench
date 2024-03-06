@@ -1,0 +1,37 @@
+# started on Wed Aug 23 12:23:23 2023
+
+
+ Performance counter stats for process id '39591':
+
+   154,492,627,682      instructions              #    0.47  insn per cycle           (37.65%)
+   330,526,002,743      cycles                                                        (42.59%)
+   171,751,873,263      cycles:u                                                      (43.88%)
+   159,851,208,905      cycles:k                                                      (44.78%)
+     2,094,144,477      BR_MIS_PRED_RETIRED                                                           (46.08%)
+    27,452,087,135      BR_RETIRED                                                           (47.59%)
+     2,659,293,165      branch-load-misses                                            (48.75%)
+    32,903,684,844      branch-loads                                                  (49.62%)
+     2,356,084,297      L1-dcache-load-misses     #    4.10% of all L1-dcache accesses  (50.42%)
+    57,463,848,779      L1-dcache-loads                                               (50.98%)
+     6,913,315,697      L1-icache-load-misses     #   12.73% of all L1-icache accesses  (51.88%)
+    54,286,348,711      L1-icache-loads                                               (52.37%)
+     7,275,929,388      L2D_CACHE_REFILL                                                           (52.94%)
+    17,227,830,095      L2D_CACHE                                                           (50.04%)
+                 0      L3D_CACHE_REFILL                                                           (48.32%)
+                 0      L3D_CACHE                                                           (46.90%)
+       557,618,377      LL_CACHE_MISS_RD                                                           (42.08%)
+     3,897,798,979      LL_CACHE_RD                                                           (40.60%)
+     1,086,717,720      dTLB-load-misses          #    1.50% of all dTLB cache accesses  (39.59%)
+    72,513,482,023      dTLB-loads                                                    (38.76%)
+       178,696,703      iTLB-load-misses          #    0.32% of all iTLB cache accesses  (37.70%)
+    56,493,591,575      iTLB-loads                                                    (37.31%)
+        93,351,948      L2TLB_REFILL                                                           (36.59%)
+     1,324,552,231      L2TLB_REQ                                                           (36.25%)
+    52,655,855,795      LD_SPEC                                                           (36.06%)
+    28,432,373,475      ST_SPEC                                                           (35.83%)
+   105,218,819,063      DP_SPEC                                                           (35.44%)
+       133,987,003      VFP_SPEC                                                           (35.19%)
+       232,782,407      ASE_SPEC                                                           (34.73%)
+
+    6760.103962780 seconds time elapsed
+

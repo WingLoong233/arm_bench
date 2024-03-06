@@ -1,0 +1,31 @@
+{
+    "detail": "",
+    "events": {
+      "r8": "INST_RETIRED",
+      "r11": "CPU_CYCLES",
+      "r22": "BR_MIS_PRED_RETIRED",
+      "r21": "BR_RETIRED",
+      "r3": "L1D_CACHE_REFILL",
+      "r4": "L1D_CACHE",
+      "r1": "L1I_CACHE_REFILL",
+      "r14": "L1I_CACHE",
+      "r17": "L2D_CACHE_REFILL",
+      "r16": "L2D_CACHE",
+      "r2A": "L3D_CACHE_REFILL",
+      "r2B": "L3D_CACHE",
+      "r37": "LL_CACHE_MISS_RD",
+      "r36": "LL_CACHE_RD",
+
+      "r5": "L1D_TLB_REFILL",
+      "r25": "L1D_TLB",
+      "r2": "L1I_TLB_REFILL",
+      "r26": "L1I_TLB",
+      "r2D": "L2TLB_REFILL",
+      "r2F": "L2TLB_REQ",
+      "r70": "LD_SPEC",
+      "r71": "ST_SPEC",
+      "r73": "DP_SPEC",
+      "r75": "VFP_SPEC",
+      "r74": "ASE_SPEC"
+    }
+  }

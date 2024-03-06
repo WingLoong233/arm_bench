@@ -1,0 +1,37 @@
+# started on Sat Aug 26 17:31:14 2023
+
+
+ Performance counter stats for process id '57518' (2 runs):
+
+ 1,142,957,643,020      instructions              #    0.18  insn per cycle           ( +- 56.24% )  (41.22%)
+ 6,504,016,741,934      cycles                                                        ( +- 56.59% )  (44.68%)
+ 6,322,940,227,240      cycles:u                                                      ( +- 56.55% )  (44.73%)
+   180,937,013,464      cycles:k                                                      ( +- 57.87% )  (44.73%)
+     7,929,401,715      BR_MIS_PRED_RETIRED                                                           ( +- 55.75% )  (44.79%)
+   226,634,787,352      BR_RETIRED                                                           ( +- 56.20% )  (44.82%)
+     9,563,218,742      branch-load-misses                                            ( +- 55.80% )  (44.81%)
+   251,086,778,553      branch-loads                                                  ( +- 56.19% )  (44.83%)
+     9,635,187,962      L1-dcache-load-misses     #    1.92% of all L1-dcache accesses  ( +- 56.04% )  (44.85%)
+   500,761,908,318      L1-dcache-loads                                               ( +- 56.22% )  (44.87%)
+    20,549,936,866      L1-icache-load-misses     #    5.69% of all L1-icache accesses  ( +- 56.00% )  (44.91%)
+   360,842,282,792      L1-icache-loads                                               ( +- 56.18% )  (44.93%)
+    29,051,734,020      L2D_CACHE_REFILL                                                           ( +- 56.15% )  (44.97%)
+    64,030,526,576      L2D_CACHE                                                           ( +- 56.28% )  (44.97%)
+                 0      L3D_CACHE_REFILL                                                           (44.99%)
+                 0      L3D_CACHE                                                           (44.95%)
+       693,476,938      LL_CACHE_MISS_RD                                                           ( +- 53.91% )  (41.51%)
+    11,659,369,802      LL_CACHE_RD                                                           ( +- 56.18% )  (41.49%)
+     2,305,868,592      dTLB-load-misses          #    0.40% of all dTLB cache accesses  ( +- 55.17% )  (41.47%)
+   571,552,659,476      dTLB-loads                                                    ( +- 56.19% )  (41.46%)
+       791,114,264      iTLB-load-misses          #    0.22% of all iTLB cache accesses  ( +- 56.20% )  (41.41%)
+   360,684,427,273      iTLB-loads                                                    ( +- 56.21% )  (41.34%)
+        71,275,398      L2TLB_REFILL                                                           ( +- 54.76% )  (41.32%)
+     3,126,667,711      L2TLB_REQ                                                           ( +- 55.35% )  (41.31%)
+   407,651,264,542      LD_SPEC                                                           ( +- 56.20% )  (41.29%)
+   200,084,315,602      ST_SPEC                                                           ( +- 56.18% )  (41.28%)
+   579,210,452,874      DP_SPEC                                                           ( +- 56.22% )  (41.24%)
+       839,126,108      VFP_SPEC                                                           ( +- 55.84% )  (41.22%)
+        46,724,020      ASE_SPEC                                                           ( +- 56.07% )  (41.19%)
+
+           70.1571 +- 0.0187 seconds time elapsed  ( +-  0.03% )
+

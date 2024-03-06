@@ -1,0 +1,31 @@
+/.vscode/
+/src/.x86_*/
+
+/src/align/align_logs/*
+/src/align/align_results_logs/*
+/src/align/align_test_result_logs/*
+/src/align/print_logs/*
+/src/align/*log*/*
+/src/align/main*
+
+/src/bak/
+
+/src/build/*
+
+/src/test_*/generate/*
+!/src/test_*/generate/*.py
+!/src/test_*/generate/Makefile
+!/src/test_*/generate/makefile
+# !/src/test_*/generate/threshold.S
+# !/src/test_*/generate/func.S
+/src/test_*/build/*
+# /src/test_*/pause/*
+/src/test_*/results/*
+/src/test_*/results_*/
+
+/test/*
+
+/testsuite_origin/
+
+
+

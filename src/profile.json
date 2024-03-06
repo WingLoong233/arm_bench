@@ -1,0 +1,479 @@
+{
+  "cpi2": {
+    "outer_number": 7500000,
+    "inner_number": 10,
+    "inner_num_ins": 20,
+    "add_r32_r32": {
+      "head": "",
+      "instruction": "add\tw0, w1, w0\n",
+      "iterators": 3000000,
+      "num_per_iter": 5000
+    },
+    "ILP4_add_0_r32": {
+      "head": "",
+      "instruction": "add\tw0, w0, #0\nadd\tw1, w1, #0\nadd\tw2, w2, #0\nadd\tw3, w3, #0\n"
+    },
+    "sub_r32_r32": {
+      "head": "",
+      "instruction": "sub\tw0, w0, w1\n",
+      "iterators": 3000000,
+      "num_per_iter": 5000
+    },
+    "mul_r32": {
+      "head": "",
+      "instruction": "mul\tw0, w0, w1\n",
+      "iterators": 1000000,
+      "num_per_iter": 5000
+    },
+    "smull_r32": {
+      "head": "",
+      "instruction": "smull\tx0, w0, w1\n",
+      "iterators": 1000000,
+      "num_per_iter": 5000
+    },
+    "mul_r64": {
+      "head": "",
+      "instruction": "mul\tx0, x0, x1\n",
+      "iterators": 1000000,
+      "num_per_iter": 5000
+    },
+    "smulh_r64": {
+      "head": "",
+      "instruction": "smulh\tx0, x0, x1\n",
+      "iterators": 1000000,
+      "num_per_iter": 5000
+    },
+    "float_add": {
+      "head": "\tfmov\ts0, 1.0e+0\n\tfmov\ts1, 1.0e+0\n",
+      "instruction": "fadd\ts0, s1, s0\nfadd\ts0, s1, s0\nfadd\ts0, s1, s0\nfadd\ts0, s1, s0\n",
+      "outer_number": 1000000,
+      "inner_number": 10,
+      "inner_num_ins": 80
+    },
+    "vector_add": {
+      "head": "\tmovi\tv0.4s, #0\n\tmovi\tv1.4s, #0\n\tmovi\tv2.4s, #0\n\tmovi\tv3.4s, #0\n",
+      "instruction": "add\tv0.4s, v0.4s, v0.4s\nadd\tv1.4s, v1.4s, v1.4s\nadd\tv2.4s, v2.4s, v2.4s\nadd\tv3.4s, v3.4s, v3.4s\n",
+      "outer_number": 1000000,
+      "inner_number": 10,
+      "inner_num_ins": 80
+    },
+    "float_add_less": {
+      "head": "\tfmov\ts0, 1.0e+0\n\tfmov\ts1, 1.0e+0\n\tfmov\ts2, 1.0e+0\n",
+      "instruction": "fadd\ts0, s1, s2\nfadd\ts0, s1, s2\nfadd\ts0, s1, s2\nfadd\ts0, s1, s2\n",
+      "outer_number": 1000000,
+      "inner_number": 50,
+      "inner_num_ins": 16
+    },
+    "vector_add_less": {
+      "head": "\tmovi\tv0.4s, #0\n\tmovi\tv1.4s, #0\n\tmovi\tv2.4s, #0\n\tmovi\tv3.4s, #0\n",
+      "instruction": "add\tv0.4s, v1.4s, v2.4s\nadd\tv0.4s, v1.4s, v2.4s\nadd\tv0.4s, v1.4s, v2.4s\nadd\tv0.4s, v1.4s, v2.4s\n",
+      "outer_number": 1000000,
+      "inner_number": 50,
+      "inner_num_ins": 16
+    },
+    "div_r8": {
+      "head": "mov\t$31, %ax\nmov\t$1, %bl\n",
+      "instruction": "div\t%bl\n",
+      "iterators": 1000000,
+      "num_per_iter": 5000
+    },
+    "idiv_r8": {
+      "head": "mov\t$31, %ax\nmov\t$1, %bl\n",
+      "instruction": "idiv\t%bl\n",
+      "iterators": 1000000,
+      "num_per_iter": 5000
+    },
+    "div_r16": {
+      "head": "mov\t$31, %ax\nmov\t$0, %dx\nmov\t$1,%bx\n",
+      "instruction": "div\t%bx\n",
+      "iterators": 1000000,
+      "num_per_iter": 5000
+    },
+    "idiv_r16": {
+      "head": "mov\t$31, %ax\nmov\t$0, %dx\nmov\t$1,%bx\n",
+      "instruction": "div\t%bx\n",
+      "iterators": 1000000,
+      "num_per_iter": 5000
+    },
+    "div_r32": {
+      "head": "movl\t$31, %eax\nmovl\t$1, %ebx\ncltd\n",
+      "instruction": "div\t%ebx\n",
+      "iterators": 1000000,
+      "num_per_iter": 5000
+    },
+    "idiv_r32": {
+      "head": "movl\t$31, %eax\nmovl\t$1, %ebx\ncltd\n",
+      "instruction": "idiv\t%ebx\n",
+      "iterators": 1000000,
+      "num_per_iter": 5000
+    },
+    "div_r64": {
+      "head": "mov\tx0, #1\nmov\tx1, #1921\nmov\tx2, #31\n",
+      "instruction": "udiv\tx0, x1, x2\n",
+      "outer_number": 1000000,
+      "inner_number": 10,
+      "inner_num_ins": 80
+    },
+    "idiv_r64": {
+      "head": "mov\tx0, #1\nmov\tx1, #1023\nmov\tx2, #31\n",
+      "instruction": "sdiv\tx0, x1, x2\n",
+      "iterators": 1000000,
+      "num_per_iter": 5000
+    },
+    "mov": {
+      "head": "",
+      "instruction": "mov\tx0, #1\n",
+      "outer_number": 1000000,
+      "inner_number": 10,
+      "inner_num_ins": 50
+    }
+  },
+  "instruction": {
+    "outer_number": 1500000,
+    "inner_number": 500,
+    "addl_r32_r32": {
+      "head": "",
+      "instruction": "addl\t%eax, %ebx\n",
+      "iterators": 3000000,
+      "num_per_iter": 5000
+    },
+    "subl_r32_r32": {
+      "head": "",
+      "instruction": "subl\t%eax, %ebx\n",
+      "iterators": 3000000,
+      "num_per_iter": 5000
+    },
+    "mul_r8": {
+      "head": "",
+      "instruction": "mul\t%bl\n",
+      "iterators": 1000000,
+      "num_per_iter": 5000
+    },
+    "imul_r8": {
+      "head": "",
+      "instruction": "imul\t%bl\n",
+      "iterators": 1000000,
+      "num_per_iter": 5000
+    },
+    "mul_r16": {
+      "head": "",
+      "instruction": "mul\t%bx\n",
+      "iterators": 1000000,
+      "num_per_iter": 5000
+    },
+    "imul_r16": {
+      "head": "",
+      "instruction": "imul\t%bx\n",
+      "iterators": 1000000,
+      "num_per_iter": 5000
+    },
+    "mul_r32": {
+      "head": "",
+      "instruction": "mul\t%ebx\n",
+      "iterators": 1000000,
+      "num_per_iter": 5000
+    },
+    "imul_r32": {
+      "head": "",
+      "instruction": "imul\t%ebx\n",
+      "iterators": 1000000,
+      "num_per_iter": 5000
+    },
+    "div_r8": {
+      "head": "mov\t$31, %ax\nmov\t$1, %bl\n",
+      "instruction": "div\t%bl\n",
+      "iterators": 1000000,
+      "num_per_iter": 5000
+    },
+    "idiv_r8": {
+      "head": "mov\t$31, %ax\nmov\t$1, %bl\n",
+      "instruction": "idiv\t%bl\n",
+      "iterators": 1000000,
+      "num_per_iter": 5000
+    },
+    "div_r16": {
+      "head": "mov\t$31, %ax\nmov\t$0, %dx\nmov\t$1,%bx\n",
+      "instruction": "div\t%bx\n",
+      "iterators": 1000000,
+      "num_per_iter": 5000
+    },
+    "idiv_r16": {
+      "head": "mov\t$31, %ax\nmov\t$0, %dx\nmov\t$1,%bx\n",
+      "instruction": "div\t%bx\n",
+      "iterators": 1000000,
+      "num_per_iter": 5000
+    },
+    "div_r32": {
+      "head": "movl\t$31, %eax\nmovl\t$1, %ebx\ncltd\n",
+      "instruction": "div\t%ebx\n",
+      "iterators": 1000000,
+      "num_per_iter": 5000
+    },
+    "idiv_r32": {
+      "head": "movl\t$31, %eax\nmovl\t$1, %ebx\ncltd\n",
+      "instruction": "idiv\t%ebx\n",
+      "iterators": 1000000,
+      "num_per_iter": 5000
+    }
+  },
+  "syscall": {
+    "outer_number": 10000,
+    "inner_number": 1024,
+    "fileread": {},
+    "filewrite": {
+      "outer_number": 1000
+    }
+  },
+  "syscall2": {
+    "outer_number": 75000,
+    "inner_number": 10,
+    "strings": {
+      "msg1": "hello"
+    },
+    "printf": {
+      "head": "",
+      "instruction": "mov $1,%rax\nmov $1,%rdi\nleaq msg1(%rip),%rsi\nmov $6,%rdx\nsyscall\n"
+    },
+    "printf1": {
+      "head": "",
+      "instruction": "mov $msg1, %edi\ncall puts\n"
+    }
+  },
+  "dcache": {
+    "memset": true,
+    "length_variable": false,
+    "const_length": 10000,
+    "cache_size": 32768,
+    "cache_sets": 64,
+    "cache_ways": 8,
+
+    "dcache_array8": {
+      "block_num": 8
+    },
+    "dcache_array16": {
+      "block_num": 8
+    },
+    "dcache_array32": {
+      "block_num": 32
+    },
+    "dcache_array64": {
+      "block_num": 64
+    },
+    "dcache_array128": {
+      "block_num": 128
+    },
+    "dcache_array256": {
+      "block_num": 512
+    },
+    "dcache_array1024": {
+      "block_num": 1024
+    },
+    "dcache_array2048": {
+      "block_num": 2048
+    },
+    "dcache_array4096": {
+      "block_num": 4096
+    },
+    "dcache_array8192": {
+      "block_num": 8192
+    },
+     "dcache_array500": {
+      "iterators": 2000000,
+      "block_num": 500,
+      "cache_size": 32768,
+      "cache_sets": 64,
+      "cache_ways": 8
+    },
+     "dcache_array550": {
+      "iterators": 1900000,
+      "block_num": 550,
+      "cache_size": 32768,
+      "cache_sets": 64,
+      "cache_ways": 8
+    },
+     "dcache_array600": {
+      "iterators": 1700000,
+      "block_num": 600,
+      "cache_size": 32768,
+      "cache_sets": 64,
+      "cache_ways": 8
+    },
+     "dcache_array700": {
+      "iterators": 1500000,
+      "block_num": 700,
+      "cache_size": 32768,
+      "cache_sets": 64,
+      "cache_ways": 8
+    },
+     "dcache_array800": {
+      "iterators": 1250000,
+      "block_num": 800,
+      "cache_size": 32768,
+      "cache_sets": 64,
+      "cache_ways": 8
+    },
+     "dcache_array900": {
+      "iterators": 1100000,
+      "block_num": 900,
+      "cache_size": 32768,
+      "cache_sets": 64,
+      "cache_ways": 8
+    },
+     "dcache_array1000": {
+      "iterators": 1000000,
+      "block_num": 1000,
+      "cache_size": 32768,
+      "cache_sets": 64,
+      "cache_ways": 8
+    },
+     "dcache_array1250": {
+      "iterators": 800000,
+      "block_num": 1250,
+      "cache_size": 32768,
+      "cache_sets": 64,
+      "cache_ways": 8
+    },
+    "dcache_array1500": {
+      "iterators": 700000,
+      "block_num": 1500,
+      "cache_size": 32768,
+      "cache_sets": 64,
+      "cache_ways": 8
+    },
+    "dcache_array2000": {
+      "iterators": 500000,
+      "block_num": 2000,
+      "cache_size": 32768,
+      "cache_sets": 64,
+      "cache_ways": 8
+    },
+    "dcache_array3000": {
+      "iterators": 330000,
+      "block_num": 3000,
+      "cache_size": 32768,
+      "cache_sets": 64,
+      "cache_ways": 8
+    },
+    "dcache_array4000": {
+      "iterators": 250000,
+      "block_num": 4000,
+      "cache_size": 32768,
+      "cache_sets": 64,
+      "cache_ways": 8
+    },
+    "dcache_array5000": {
+      "iterators": 200000,
+      "block_num": 5000,
+      "cache_size": 32768,
+      "cache_sets": 64,
+      "cache_ways": 8
+    },
+    "dcache_array6000": {
+      "iterators": 166000,
+      "block_num": 6000,
+      "cache_size": 32768,
+      "cache_sets": 64,
+      "cache_ways": 8
+    },
+    "dcache_array7000": {
+      "iterators": 140000,
+      "block_num": 7000,
+      "cache_size": 32768,
+      "cache_sets": 64,
+      "cache_ways": 8
+    },
+    "dcache_array8000": {
+      "iterators": 125000,
+      "block_num": 8000,
+      "cache_size": 32768,
+      "cache_sets": 64,
+      "cache_ways": 8
+    },
+    "dcache_array9000": {
+      "iterators": 111000,
+      "block_num": 9000,
+      "cache_size": 32768,
+      "cache_sets": 64,
+      "cache_ways": 8
+    },
+    "dcache_array10000": {
+      "iterators": 100000,
+      "block_num": 10000,
+      "cache_size": 32768,
+      "cache_sets": 64,
+      "cache_ways": 8
+    }
+  },
+  "l2_cache": {
+    "cache_size": 32768,
+    "cache_sets": 64,
+    "cache_ways": 8,
+    "array_size" : 16777216,
+    "inner_number": 1024,
+    "outer_number": 10485760
+  },
+  "l3_cache": {
+    "cache_size": 32768,
+    "cache_sets": 64,
+    "cache_ways": 8,
+    "array_size": 16777216,
+    "inner_number": 1024,
+    "outer_number": 10485760
+  },
+  "sTLB": {
+    "cache_size": 32768,
+    "cache_sets": 64,
+    "cache_ways": 8,
+    "array_size" : 16777216,
+    "inner_number": 1024,
+    "outer_number": 10485760
+  },
+  "dcache_dTLB": {
+    "cache_size": 32768,
+    "cache_sets": 64,
+    "cache_ways": 8,
+    "array_name": "array",
+    "array_name_sys": "arraysys",
+    "array_size": 16777216,
+    "array_size_big": 268435456,
+    "inner_number": 512,
+    "outer_number": 5000000,
+    "stride0": {
+      "stride": 0
+    },
+    "stride1": {
+      "stride": 1
+    },
+    "stride8": {
+      "stride": 8
+    },
+    "stride4096": {
+      "stride": 4096
+    }
+  },
+  "icache_iTLB": {
+    "cache_size": 32768,
+    "cache_sets": 128,
+    "cache_ways": 4,
+    "array_size": 6291456,
+    "inner_number": 2048,
+    "outer_number": 50000,
+    "note": "arary_size means the length of all funcs. There are 2^21 funcs in total and every func's length is 3, so array_size=3*2^21"
+  },
+  "icache_iTLB2": {
+    "cache_size": 32768,
+    "cache_sets": 128,
+    "cache_ways": 4,
+    "array_size": 6291456,
+    "inner_number": 1024,
+    "outer_number": 3001000000,
+    "note": "arary_size means the length of all funcs. There are 2^21 funcs in total and every func's length is 3, so array_size=3*2^21"
+  },
+  "branch_miss": {
+    "outer_number": 1000000,
+    "max_value": 1024,
+    "threshold500": {
+      "threshold": 500
+    }
+  }
+}

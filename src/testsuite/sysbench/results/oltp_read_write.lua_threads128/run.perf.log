@@ -1,0 +1,90 @@
+sysbench 1.1.0 (using bundled LuaJIT 2.1.0-beta3)
+
+Running the test with following options:
+Number of threads: 128
+Warmup time: 10s
+Report intermediate results every 20 second(s)
+Initializing random number generator from current time
+
+
+Initializing worker threads...
+
+Threads started!
+
+Warming up for 10 seconds...
+
+[ 20s ] thds: 128 tps: 612.34 qps: 12327.90 (r/w/o: 8632.52/2466.43/1228.95) lat (ms,95%): 272.27 err/s: 0.00 reconn/s: 0.00
+[ 40s ] thds: 128 tps: 522.65 qps: 10452.30 (r/w/o: 7317.10/2089.90/1045.30) lat (ms,95%): 511.33 err/s: 0.00 reconn/s: 0.00
+[ 60s ] thds: 128 tps: 476.75 qps: 9535.74 (r/w/o: 6674.53/1907.71/953.50) lat (ms,95%): 646.19 err/s: 0.00 reconn/s: 0.00
+SQL statistics:
+    queries performed:
+        read:                            462700
+        write:                           132200
+        other:                           66228
+        total:                           661128
+    transactions:                        33178  (551.41 per sec.)
+    queries:                             661128 (10987.80 per sec.)
+    ignored errors:                      0      (0.00 per sec.)
+    reconnects:                          0      (0.00 per sec.)
+
+Throughput:
+    events/s (eps):                      551.4109
+    time elapsed:                        60.1747s
+    total number of events:              33178
+
+Latency (ms):
+         min:                                   75.01
+         avg:                                  232.34
+         max:                                 1265.58
+         95th percentile:                      484.44
+         sum:                              7708698.07
+
+Threads fairness:
+    events (avg/stddev):           259.2031/2.36
+    execution time (avg/stddev):   60.2242/0.01
+
+sysbench 1.1.0 (using bundled LuaJIT 2.1.0-beta3)
+
+Running the test with following options:
+Number of threads: 128
+Warmup time: 10s
+Report intermediate results every 20 second(s)
+Initializing random number generator from current time
+
+
+Initializing worker threads...
+
+Threads started!
+
+Warming up for 10 seconds...
+
+[ 20s ] thds: 128 tps: 497.36 qps: 10028.18 (r/w/o: 7022.71/2006.49/998.98) lat (ms,95%): 559.50 err/s: 0.00 reconn/s: 0.00
+[ 40s ] thds: 128 tps: 494.20 qps: 9883.78 (r/w/o: 6918.75/1976.64/988.39) lat (ms,95%): 601.29 err/s: 0.00 reconn/s: 0.00
+[ 60s ] thds: 128 tps: 925.10 qps: 18502.13 (r/w/o: 12951.39/3700.55/1850.20) lat (ms,95%): 179.94 err/s: 0.00 reconn/s: 0.00
+SQL statistics:
+    queries performed:
+        read:                            540778
+        write:                           154508
+        other:                           77382
+        total:                           772668
+    transactions:                        38755  (645.08 per sec.)
+    queries:                             772668 (12861.05 per sec.)
+    ignored errors:                      0      (0.00 per sec.)
+    reconnects:                          0      (0.00 per sec.)
+
+Throughput:
+    events/s (eps):                      645.0767
+    time elapsed:                        60.0863s
+    total number of events:              38755
+
+Latency (ms):
+         min:                                   48.51
+         avg:                                  198.34
+         max:                                 1074.71
+         95th percentile:                      539.71
+         sum:                              7686682.73
+
+Threads fairness:
+    events (avg/stddev):           302.7734/3.02
+    execution time (avg/stddev):   60.0522/0.01
+

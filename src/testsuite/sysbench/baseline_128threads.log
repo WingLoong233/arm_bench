@@ -1,0 +1,466 @@
+
+=================================================
+[33m [option] threads=128 [0m
+=================================================
+
+
+=================================================
+[33m [option] time for one sysbench case:60 [0m
+=================================================
+
+
+=================================================
+[33m start to run: bulk_insert.lua
+oltp_common.lua
+oltp_delete.lua
+oltp_insert.lua
+oltp_point_select.lua
+oltp_read_only.lua
+oltp_read_write.lua
+oltp_update_index.lua
+oltp_update_non_index.lua
+oltp_write_only.lua
+select_random_points.lua
+select_random_ranges.lua [0m
+=================================================
+
+
+=================================================
+[33m case: /home/yangyuxuan/from-yang-yikang/testsuite/mysql/sysbench_install/share/sysbench/oltp_delete.lua [0m
+=================================================
+
+/home/yangyuxuan/from-yang-yikang/testsuite/mysql/test_cases/sysbench
+no mysqld running
+2023-08-26T08:33:44.229599Z 0 [Warning] [MY-000081] [Server] option 'max_prepared_stmt_count': unsigned value 10000000 adjusted to 4194304.
+2023-08-26T08:33:44.230243Z 0 [System] [MY-013169] [Server] /home/yangyuxuan/from-yang-yikang/testsuite/mysql/mysql-8.0.22/install_baseline/bin/mysqld (mysqld 8.0.22) initializing of server in progress as process 43743
+2023-08-26T08:33:44.259882Z 1 [System] [MY-013576] [InnoDB] InnoDB initialization has started.
+2023-08-26T08:33:50.856018Z 1 [System] [MY-013577] [InnoDB] InnoDB initialization has ended.
+2023-08-26T08:34:05.255532Z 6 [Warning] [MY-010453] [Server] root@localhost is created with an empty password ! Please consider switching off the --initialize-insecure option.
+2023-08-26T08:34:27.410744Z 0 [Warning] [MY-000081] [Server] option 'max_prepared_stmt_count': unsigned value 10000000 adjusted to 4194304.
+2023-08-26T08:34:27.524539Z 0 [Warning] [MY-010099] [Server] Insecure configuration for --secure-file-priv: Data directory is accessible through --secure-file-priv. Consider choosing a different directory.
+2023-08-26T08:34:27.524599Z 0 [System] [MY-010116] [Server] /home/yangyuxuan/from-yang-yikang/testsuite/mysql/mysql-8.0.22/install_baseline/bin/mysqld (mysqld 8.0.22) starting as process 43986
+2023-08-26T08:34:27.531213Z 1 [System] [MY-013576] [InnoDB] InnoDB initialization has started.
+2023-08-26T08:34:28.877269Z 1 [System] [MY-013577] [InnoDB] InnoDB initialization has ended.
+2023-08-26T08:34:29.250325Z 0 [System] [MY-011323] [Server] X Plugin ready for connections. Bind-address: '::' port: 31001, socket: /home/yangyuxuan/from-yang-yikang/testsuite/mysql/test_cases/sysbench/../../tmp/mysqlx_30009.sock
+2023-08-26T08:34:29.809662Z 0 [Warning] [MY-010068] [Server] CA certificate ca.pem is self signed.
+2023-08-26T08:34:29.809877Z 0 [System] [MY-013602] [Server] Channel mysql_main configured to support TLS. Encrypted connections are now supported for this channel.
+2023-08-26T08:34:29.893693Z 0 [System] [MY-010931] [Server] /home/yangyuxuan/from-yang-yikang/testsuite/mysql/mysql-8.0.22/install_baseline/bin/mysqld: ready for connections. Version: '8.0.22'  socket: '/home/yangyuxuan/from-yang-yikang/testsuite/mysql/test_cases/sysbench/../../tmp/mysql_30009.sock'  port: 30009  Source distribution.
+process id is 43986
+
+=================================================
+[33m sysbench prepare [0m
+=================================================
+
+sysbench 1.1.0 (using bundled LuaJIT 2.1.0-beta3)
+
+Initializing worker threads...
+
+Creating table 'sbtest1'...
+Inserting 500000 records into 'sbtest1'
+Creating a secondary index on 'sbtest1'...
+
+=================================================
+[33m sysbench run [0m
+=================================================
+
+(time perf stat -r 2         -e 'instructions,cycles,cycles:u,cycles:k'         -e 'r22,r21,branch-load-misses,branch-loads'         -e 'L1-dcache-load-misses,L1-dcache-loads'         -e 'L1-icache-load-misses,L1-icache-loads'         -e 'r17,r16,r2A,r2B,r37,r36'         -e 'dTLB-load-misses,dTLB-loads'         -e 'iTLB-load-misses,iTLB-loads'         -e 'r2D,r2F'         -e 'r70,r71,r73,r75,r74'         -o ${perf_log_dir}/perf.out         -p ${process_id}          /home/yangyuxuan/from-yang-yikang/testsuite/mysql/sysbench_install/bin/sysbench $b --db-driver=mysql --mysql-user=${user} --mysql-password=${pw} --mysql-host=${host}         --mysql-port=${port} --mysql-db=sysbench --threads=${threads} --report-interval=20 --time=${time_per_case} --mysql-storage-engine=innodb --table-size=${table_size} --tables=${tables} --time=${time_per_case} --warmup-time=${warmup_time} run) > ${perf_log_dir}/run.perf.log 2> ${perf_log_dir}/run.perf.err
+pidof mysqld: 43986
+2023-08-26T08:38:47.864358Z 393 [System] [MY-013172] [Server] Received SHUTDOWN from user root. Shutting down mysqld (Version: 8.0.22).
+2023-08-26T08:39:34.466360Z 0 [System] [MY-010910] [Server] /home/yangyuxuan/from-yang-yikang/testsuite/mysql/mysql-8.0.22/install_baseline/bin/mysqld: Shutdown complete (mysqld 8.0.22)  Source distribution.
+mysqld stopped
+
+=================================================
+[33m case: /home/yangyuxuan/from-yang-yikang/testsuite/mysql/sysbench_install/share/sysbench/oltp_insert.lua [0m
+=================================================
+
+/home/yangyuxuan/from-yang-yikang/testsuite/mysql/test_cases/sysbench
+no mysqld running
+2023-08-26T08:40:04.967777Z 0 [Warning] [MY-000081] [Server] option 'max_prepared_stmt_count': unsigned value 10000000 adjusted to 4194304.
+2023-08-26T08:40:04.968429Z 0 [System] [MY-013169] [Server] /home/yangyuxuan/from-yang-yikang/testsuite/mysql/mysql-8.0.22/install_baseline/bin/mysqld (mysqld 8.0.22) initializing of server in progress as process 45278
+2023-08-26T08:40:04.995858Z 1 [System] [MY-013576] [InnoDB] InnoDB initialization has started.
+2023-08-26T08:40:11.808433Z 1 [System] [MY-013577] [InnoDB] InnoDB initialization has ended.
+2023-08-26T08:40:24.180879Z 6 [Warning] [MY-010453] [Server] root@localhost is created with an empty password ! Please consider switching off the --initialize-insecure option.
+2023-08-26T08:40:43.678638Z 0 [Warning] [MY-000081] [Server] option 'max_prepared_stmt_count': unsigned value 10000000 adjusted to 4194304.
+2023-08-26T08:40:43.794510Z 0 [Warning] [MY-010099] [Server] Insecure configuration for --secure-file-priv: Data directory is accessible through --secure-file-priv. Consider choosing a different directory.
+2023-08-26T08:40:43.794570Z 0 [System] [MY-010116] [Server] /home/yangyuxuan/from-yang-yikang/testsuite/mysql/mysql-8.0.22/install_baseline/bin/mysqld (mysqld 8.0.22) starting as process 45517
+2023-08-26T08:40:43.801137Z 1 [System] [MY-013576] [InnoDB] InnoDB initialization has started.
+2023-08-26T08:40:45.045207Z 1 [System] [MY-013577] [InnoDB] InnoDB initialization has ended.
+2023-08-26T08:40:45.362072Z 0 [System] [MY-011323] [Server] X Plugin ready for connections. Bind-address: '::' port: 31001, socket: /home/yangyuxuan/from-yang-yikang/testsuite/mysql/test_cases/sysbench/../../tmp/mysqlx_30009.sock
+2023-08-26T08:40:45.887886Z 0 [Warning] [MY-010068] [Server] CA certificate ca.pem is self signed.
+2023-08-26T08:40:45.888103Z 0 [System] [MY-013602] [Server] Channel mysql_main configured to support TLS. Encrypted connections are now supported for this channel.
+2023-08-26T08:40:45.933307Z 0 [System] [MY-010931] [Server] /home/yangyuxuan/from-yang-yikang/testsuite/mysql/mysql-8.0.22/install_baseline/bin/mysqld: ready for connections. Version: '8.0.22'  socket: '/home/yangyuxuan/from-yang-yikang/testsuite/mysql/test_cases/sysbench/../../tmp/mysql_30009.sock'  port: 30009  Source distribution.
+process id is 45517
+
+=================================================
+[33m sysbench prepare [0m
+=================================================
+
+sysbench 1.1.0 (using bundled LuaJIT 2.1.0-beta3)
+
+Initializing worker threads...
+
+Creating table 'sbtest1'...
+Inserting 500000 records into 'sbtest1'
+Creating a secondary index on 'sbtest1'...
+
+=================================================
+[33m sysbench run [0m
+=================================================
+
+(time perf stat -r 2         -e 'instructions,cycles,cycles:u,cycles:k'         -e 'r22,r21,branch-load-misses,branch-loads'         -e 'L1-dcache-load-misses,L1-dcache-loads'         -e 'L1-icache-load-misses,L1-icache-loads'         -e 'r17,r16,r2A,r2B,r37,r36'         -e 'dTLB-load-misses,dTLB-loads'         -e 'iTLB-load-misses,iTLB-loads'         -e 'r2D,r2F'         -e 'r70,r71,r73,r75,r74'         -o ${perf_log_dir}/perf.out         -p ${process_id}          /home/yangyuxuan/from-yang-yikang/testsuite/mysql/sysbench_install/bin/sysbench $b --db-driver=mysql --mysql-user=${user} --mysql-password=${pw} --mysql-host=${host}         --mysql-port=${port} --mysql-db=sysbench --threads=${threads} --report-interval=20 --time=${time_per_case} --mysql-storage-engine=innodb --table-size=${table_size} --tables=${tables} --time=${time_per_case} --warmup-time=${warmup_time} run) > ${perf_log_dir}/run.perf.log 2> ${perf_log_dir}/run.perf.err
+pidof mysqld: 45517
+2023-08-26T08:44:59.901101Z 393 [System] [MY-013172] [Server] Received SHUTDOWN from user root. Shutting down mysqld (Version: 8.0.22).
+2023-08-26T08:45:26.304939Z 0 [System] [MY-010910] [Server] /home/yangyuxuan/from-yang-yikang/testsuite/mysql/mysql-8.0.22/install_baseline/bin/mysqld: Shutdown complete (mysqld 8.0.22)  Source distribution.
+mysqld stopped
+
+=================================================
+[33m case: /home/yangyuxuan/from-yang-yikang/testsuite/mysql/sysbench_install/share/sysbench/oltp_point_select.lua [0m
+=================================================
+
+/home/yangyuxuan/from-yang-yikang/testsuite/mysql/test_cases/sysbench
+no mysqld running
+2023-08-26T08:45:56.999825Z 0 [Warning] [MY-000081] [Server] option 'max_prepared_stmt_count': unsigned value 10000000 adjusted to 4194304.
+2023-08-26T08:45:57.000472Z 0 [System] [MY-013169] [Server] /home/yangyuxuan/from-yang-yikang/testsuite/mysql/mysql-8.0.22/install_baseline/bin/mysqld (mysqld 8.0.22) initializing of server in progress as process 46780
+2023-08-26T08:45:57.030154Z 1 [System] [MY-013576] [InnoDB] InnoDB initialization has started.
+2023-08-26T08:46:03.492333Z 1 [System] [MY-013577] [InnoDB] InnoDB initialization has ended.
+2023-08-26T08:46:20.683446Z 6 [Warning] [MY-010453] [Server] root@localhost is created with an empty password ! Please consider switching off the --initialize-insecure option.
+2023-08-26T08:46:42.691374Z 0 [Warning] [MY-000081] [Server] option 'max_prepared_stmt_count': unsigned value 10000000 adjusted to 4194304.
+2023-08-26T08:46:42.804476Z 0 [Warning] [MY-010099] [Server] Insecure configuration for --secure-file-priv: Data directory is accessible through --secure-file-priv. Consider choosing a different directory.
+2023-08-26T08:46:42.804538Z 0 [System] [MY-010116] [Server] /home/yangyuxuan/from-yang-yikang/testsuite/mysql/mysql-8.0.22/install_baseline/bin/mysqld (mysqld 8.0.22) starting as process 47027
+2023-08-26T08:46:42.811170Z 1 [System] [MY-013576] [InnoDB] InnoDB initialization has started.
+2023-08-26T08:46:43.979552Z 1 [System] [MY-013577] [InnoDB] InnoDB initialization has ended.
+2023-08-26T08:46:44.310880Z 0 [System] [MY-011323] [Server] X Plugin ready for connections. Bind-address: '::' port: 31001, socket: /home/yangyuxuan/from-yang-yikang/testsuite/mysql/test_cases/sysbench/../../tmp/mysqlx_30009.sock
+2023-08-26T08:46:44.786911Z 0 [Warning] [MY-010068] [Server] CA certificate ca.pem is self signed.
+2023-08-26T08:46:44.787130Z 0 [System] [MY-013602] [Server] Channel mysql_main configured to support TLS. Encrypted connections are now supported for this channel.
+2023-08-26T08:46:44.865240Z 0 [System] [MY-010931] [Server] /home/yangyuxuan/from-yang-yikang/testsuite/mysql/mysql-8.0.22/install_baseline/bin/mysqld: ready for connections. Version: '8.0.22'  socket: '/home/yangyuxuan/from-yang-yikang/testsuite/mysql/test_cases/sysbench/../../tmp/mysql_30009.sock'  port: 30009  Source distribution.
+process id is 47027
+
+=================================================
+[33m sysbench prepare [0m
+=================================================
+
+sysbench 1.1.0 (using bundled LuaJIT 2.1.0-beta3)
+
+Initializing worker threads...
+
+Creating table 'sbtest1'...
+Inserting 500000 records into 'sbtest1'
+Creating a secondary index on 'sbtest1'...
+
+=================================================
+[33m sysbench run [0m
+=================================================
+
+(time perf stat -r 2         -e 'instructions,cycles,cycles:u,cycles:k'         -e 'r22,r21,branch-load-misses,branch-loads'         -e 'L1-dcache-load-misses,L1-dcache-loads'         -e 'L1-icache-load-misses,L1-icache-loads'         -e 'r17,r16,r2A,r2B,r37,r36'         -e 'dTLB-load-misses,dTLB-loads'         -e 'iTLB-load-misses,iTLB-loads'         -e 'r2D,r2F'         -e 'r70,r71,r73,r75,r74'         -o ${perf_log_dir}/perf.out         -p ${process_id}          /home/yangyuxuan/from-yang-yikang/testsuite/mysql/sysbench_install/bin/sysbench $b --db-driver=mysql --mysql-user=${user} --mysql-password=${pw} --mysql-host=${host}         --mysql-port=${port} --mysql-db=sysbench --threads=${threads} --report-interval=20 --time=${time_per_case} --mysql-storage-engine=innodb --table-size=${table_size} --tables=${tables} --time=${time_per_case} --warmup-time=${warmup_time} run) > ${perf_log_dir}/run.perf.log 2> ${perf_log_dir}/run.perf.err
+pidof mysqld: 47027
+2023-08-26T08:51:00.703196Z 393 [System] [MY-013172] [Server] Received SHUTDOWN from user root. Shutting down mysqld (Version: 8.0.22).
+2023-08-26T08:51:02.620483Z 0 [System] [MY-010910] [Server] /home/yangyuxuan/from-yang-yikang/testsuite/mysql/mysql-8.0.22/install_baseline/bin/mysqld: Shutdown complete (mysqld 8.0.22)  Source distribution.
+mysqld stopped
+
+=================================================
+[33m case: /home/yangyuxuan/from-yang-yikang/testsuite/mysql/sysbench_install/share/sysbench/oltp_read_only.lua [0m
+=================================================
+
+/home/yangyuxuan/from-yang-yikang/testsuite/mysql/test_cases/sysbench
+no mysqld running
+2023-08-26T08:51:32.795731Z 0 [Warning] [MY-000081] [Server] option 'max_prepared_stmt_count': unsigned value 10000000 adjusted to 4194304.
+2023-08-26T08:51:32.796386Z 0 [System] [MY-013169] [Server] /home/yangyuxuan/from-yang-yikang/testsuite/mysql/mysql-8.0.22/install_baseline/bin/mysqld (mysqld 8.0.22) initializing of server in progress as process 48228
+2023-08-26T08:51:32.811737Z 1 [System] [MY-013576] [InnoDB] InnoDB initialization has started.
+2023-08-26T08:51:38.450025Z 1 [System] [MY-013577] [InnoDB] InnoDB initialization has ended.
+2023-08-26T08:51:54.297446Z 6 [Warning] [MY-010453] [Server] root@localhost is created with an empty password ! Please consider switching off the --initialize-insecure option.
+2023-08-26T08:52:16.400828Z 0 [Warning] [MY-000081] [Server] option 'max_prepared_stmt_count': unsigned value 10000000 adjusted to 4194304.
+2023-08-26T08:52:16.514455Z 0 [Warning] [MY-010099] [Server] Insecure configuration for --secure-file-priv: Data directory is accessible through --secure-file-priv. Consider choosing a different directory.
+2023-08-26T08:52:16.514515Z 0 [System] [MY-010116] [Server] /home/yangyuxuan/from-yang-yikang/testsuite/mysql/mysql-8.0.22/install_baseline/bin/mysqld (mysqld 8.0.22) starting as process 48472
+2023-08-26T08:52:16.521043Z 1 [System] [MY-013576] [InnoDB] InnoDB initialization has started.
+2023-08-26T08:52:17.830420Z 1 [System] [MY-013577] [InnoDB] InnoDB initialization has ended.
+2023-08-26T08:52:18.157651Z 0 [System] [MY-011323] [Server] X Plugin ready for connections. Bind-address: '::' port: 31001, socket: /home/yangyuxuan/from-yang-yikang/testsuite/mysql/test_cases/sysbench/../../tmp/mysqlx_30009.sock
+2023-08-26T08:52:18.875233Z 0 [Warning] [MY-010068] [Server] CA certificate ca.pem is self signed.
+2023-08-26T08:52:18.875445Z 0 [System] [MY-013602] [Server] Channel mysql_main configured to support TLS. Encrypted connections are now supported for this channel.
+2023-08-26T08:52:18.970709Z 0 [System] [MY-010931] [Server] /home/yangyuxuan/from-yang-yikang/testsuite/mysql/mysql-8.0.22/install_baseline/bin/mysqld: ready for connections. Version: '8.0.22'  socket: '/home/yangyuxuan/from-yang-yikang/testsuite/mysql/test_cases/sysbench/../../tmp/mysql_30009.sock'  port: 30009  Source distribution.
+process id is 48472
+
+=================================================
+[33m sysbench prepare [0m
+=================================================
+
+sysbench 1.1.0 (using bundled LuaJIT 2.1.0-beta3)
+
+Initializing worker threads...
+
+Creating table 'sbtest1'...
+Inserting 500000 records into 'sbtest1'
+Creating a secondary index on 'sbtest1'...
+
+=================================================
+[33m sysbench run [0m
+=================================================
+
+(time perf stat -r 2         -e 'instructions,cycles,cycles:u,cycles:k'         -e 'r22,r21,branch-load-misses,branch-loads'         -e 'L1-dcache-load-misses,L1-dcache-loads'         -e 'L1-icache-load-misses,L1-icache-loads'         -e 'r17,r16,r2A,r2B,r37,r36'         -e 'dTLB-load-misses,dTLB-loads'         -e 'iTLB-load-misses,iTLB-loads'         -e 'r2D,r2F'         -e 'r70,r71,r73,r75,r74'         -o ${perf_log_dir}/perf.out         -p ${process_id}          /home/yangyuxuan/from-yang-yikang/testsuite/mysql/sysbench_install/bin/sysbench $b --db-driver=mysql --mysql-user=${user} --mysql-password=${pw} --mysql-host=${host}         --mysql-port=${port} --mysql-db=sysbench --threads=${threads} --report-interval=20 --time=${time_per_case} --mysql-storage-engine=innodb --table-size=${table_size} --tables=${tables} --time=${time_per_case} --warmup-time=${warmup_time} run) > ${perf_log_dir}/run.perf.log 2> ${perf_log_dir}/run.perf.err
+pidof mysqld: 48472
+2023-08-26T08:56:39.327869Z 393 [System] [MY-013172] [Server] Received SHUTDOWN from user root. Shutting down mysqld (Version: 8.0.22).
+2023-08-26T08:56:41.273459Z 0 [System] [MY-010910] [Server] /home/yangyuxuan/from-yang-yikang/testsuite/mysql/mysql-8.0.22/install_baseline/bin/mysqld: Shutdown complete (mysqld 8.0.22)  Source distribution.
+mysqld stopped
+
+=================================================
+[33m case: /home/yangyuxuan/from-yang-yikang/testsuite/mysql/sysbench_install/share/sysbench/oltp_read_write.lua [0m
+=================================================
+
+/home/yangyuxuan/from-yang-yikang/testsuite/mysql/test_cases/sysbench
+no mysqld running
+2023-08-26T08:57:11.461398Z 0 [Warning] [MY-000081] [Server] option 'max_prepared_stmt_count': unsigned value 10000000 adjusted to 4194304.
+2023-08-26T08:57:11.462046Z 0 [System] [MY-013169] [Server] /home/yangyuxuan/from-yang-yikang/testsuite/mysql/mysql-8.0.22/install_baseline/bin/mysqld (mysqld 8.0.22) initializing of server in progress as process 49649
+2023-08-26T08:57:11.492809Z 1 [System] [MY-013576] [InnoDB] InnoDB initialization has started.
+2023-08-26T08:57:18.280167Z 1 [System] [MY-013577] [InnoDB] InnoDB initialization has ended.
+2023-08-26T08:57:32.688702Z 6 [Warning] [MY-010453] [Server] root@localhost is created with an empty password ! Please consider switching off the --initialize-insecure option.
+2023-08-26T08:57:54.270688Z 0 [Warning] [MY-000081] [Server] option 'max_prepared_stmt_count': unsigned value 10000000 adjusted to 4194304.
+2023-08-26T08:57:54.384555Z 0 [Warning] [MY-010099] [Server] Insecure configuration for --secure-file-priv: Data directory is accessible through --secure-file-priv. Consider choosing a different directory.
+2023-08-26T08:57:54.384613Z 0 [System] [MY-010116] [Server] /home/yangyuxuan/from-yang-yikang/testsuite/mysql/mysql-8.0.22/install_baseline/bin/mysqld (mysqld 8.0.22) starting as process 49894
+2023-08-26T08:57:54.391308Z 1 [System] [MY-013576] [InnoDB] InnoDB initialization has started.
+2023-08-26T08:57:55.824740Z 1 [System] [MY-013577] [InnoDB] InnoDB initialization has ended.
+2023-08-26T08:57:56.149841Z 0 [System] [MY-011323] [Server] X Plugin ready for connections. Bind-address: '::' port: 31001, socket: /home/yangyuxuan/from-yang-yikang/testsuite/mysql/test_cases/sysbench/../../tmp/mysqlx_30009.sock
+2023-08-26T08:57:56.750861Z 0 [Warning] [MY-010068] [Server] CA certificate ca.pem is self signed.
+2023-08-26T08:57:56.751077Z 0 [System] [MY-013602] [Server] Channel mysql_main configured to support TLS. Encrypted connections are now supported for this channel.
+2023-08-26T08:57:56.810606Z 0 [System] [MY-010931] [Server] /home/yangyuxuan/from-yang-yikang/testsuite/mysql/mysql-8.0.22/install_baseline/bin/mysqld: ready for connections. Version: '8.0.22'  socket: '/home/yangyuxuan/from-yang-yikang/testsuite/mysql/test_cases/sysbench/../../tmp/mysql_30009.sock'  port: 30009  Source distribution.
+process id is 49894
+
+=================================================
+[33m sysbench prepare [0m
+=================================================
+
+sysbench 1.1.0 (using bundled LuaJIT 2.1.0-beta3)
+
+Initializing worker threads...
+
+Creating table 'sbtest1'...
+Inserting 500000 records into 'sbtest1'
+Creating a secondary index on 'sbtest1'...
+
+=================================================
+[33m sysbench run [0m
+=================================================
+
+(time perf stat -r 2         -e 'instructions,cycles,cycles:u,cycles:k'         -e 'r22,r21,branch-load-misses,branch-loads'         -e 'L1-dcache-load-misses,L1-dcache-loads'         -e 'L1-icache-load-misses,L1-icache-loads'         -e 'r17,r16,r2A,r2B,r37,r36'         -e 'dTLB-load-misses,dTLB-loads'         -e 'iTLB-load-misses,iTLB-loads'         -e 'r2D,r2F'         -e 'r70,r71,r73,r75,r74'         -o ${perf_log_dir}/perf.out         -p ${process_id}          /home/yangyuxuan/from-yang-yikang/testsuite/mysql/sysbench_install/bin/sysbench $b --db-driver=mysql --mysql-user=${user} --mysql-password=${pw} --mysql-host=${host}         --mysql-port=${port} --mysql-db=sysbench --threads=${threads} --report-interval=20 --time=${time_per_case} --mysql-storage-engine=innodb --table-size=${table_size} --tables=${tables} --time=${time_per_case} --warmup-time=${warmup_time} run) > ${perf_log_dir}/run.perf.log 2> ${perf_log_dir}/run.perf.err
+pidof mysqld: 49894
+2023-08-26T09:02:15.231219Z 393 [System] [MY-013172] [Server] Received SHUTDOWN from user root. Shutting down mysqld (Version: 8.0.22).
+2023-08-26T09:03:12.266889Z 0 [System] [MY-010910] [Server] /home/yangyuxuan/from-yang-yikang/testsuite/mysql/mysql-8.0.22/install_baseline/bin/mysqld: Shutdown complete (mysqld 8.0.22)  Source distribution.
+mysqld stopped
+
+=================================================
+[33m case: /home/yangyuxuan/from-yang-yikang/testsuite/mysql/sysbench_install/share/sysbench/oltp_update_index.lua [0m
+=================================================
+
+/home/yangyuxuan/from-yang-yikang/testsuite/mysql/test_cases/sysbench
+no mysqld running
+2023-08-26T09:03:43.346646Z 0 [Warning] [MY-000081] [Server] option 'max_prepared_stmt_count': unsigned value 10000000 adjusted to 4194304.
+2023-08-26T09:03:43.347288Z 0 [System] [MY-013169] [Server] /home/yangyuxuan/from-yang-yikang/testsuite/mysql/mysql-8.0.22/install_baseline/bin/mysqld (mysqld 8.0.22) initializing of server in progress as process 51222
+2023-08-26T09:03:43.380931Z 1 [System] [MY-013576] [InnoDB] InnoDB initialization has started.
+2023-08-26T09:03:50.617959Z 1 [System] [MY-013577] [InnoDB] InnoDB initialization has ended.
+2023-08-26T09:04:03.036999Z 6 [Warning] [MY-010453] [Server] root@localhost is created with an empty password ! Please consider switching off the --initialize-insecure option.
+2023-08-26T09:04:22.830807Z 0 [Warning] [MY-000081] [Server] option 'max_prepared_stmt_count': unsigned value 10000000 adjusted to 4194304.
+2023-08-26T09:04:22.954475Z 0 [Warning] [MY-010099] [Server] Insecure configuration for --secure-file-priv: Data directory is accessible through --secure-file-priv. Consider choosing a different directory.
+2023-08-26T09:04:22.954536Z 0 [System] [MY-010116] [Server] /home/yangyuxuan/from-yang-yikang/testsuite/mysql/mysql-8.0.22/install_baseline/bin/mysqld (mysqld 8.0.22) starting as process 51471
+2023-08-26T09:04:22.961038Z 1 [System] [MY-013576] [InnoDB] InnoDB initialization has started.
+2023-08-26T09:04:24.279752Z 1 [System] [MY-013577] [InnoDB] InnoDB initialization has ended.
+2023-08-26T09:04:24.646520Z 0 [System] [MY-011323] [Server] X Plugin ready for connections. Bind-address: '::' port: 31001, socket: /home/yangyuxuan/from-yang-yikang/testsuite/mysql/test_cases/sysbench/../../tmp/mysqlx_30009.sock
+2023-08-26T09:04:25.180816Z 0 [Warning] [MY-010068] [Server] CA certificate ca.pem is self signed.
+2023-08-26T09:04:25.181031Z 0 [System] [MY-013602] [Server] Channel mysql_main configured to support TLS. Encrypted connections are now supported for this channel.
+2023-08-26T09:04:25.269583Z 0 [System] [MY-010931] [Server] /home/yangyuxuan/from-yang-yikang/testsuite/mysql/mysql-8.0.22/install_baseline/bin/mysqld: ready for connections. Version: '8.0.22'  socket: '/home/yangyuxuan/from-yang-yikang/testsuite/mysql/test_cases/sysbench/../../tmp/mysql_30009.sock'  port: 30009  Source distribution.
+process id is 51471
+
+=================================================
+[33m sysbench prepare [0m
+=================================================
+
+sysbench 1.1.0 (using bundled LuaJIT 2.1.0-beta3)
+
+Initializing worker threads...
+
+Creating table 'sbtest1'...
+Inserting 500000 records into 'sbtest1'
+Creating a secondary index on 'sbtest1'...
+
+=================================================
+[33m sysbench run [0m
+=================================================
+
+(time perf stat -r 2         -e 'instructions,cycles,cycles:u,cycles:k'         -e 'r22,r21,branch-load-misses,branch-loads'         -e 'L1-dcache-load-misses,L1-dcache-loads'         -e 'L1-icache-load-misses,L1-icache-loads'         -e 'r17,r16,r2A,r2B,r37,r36'         -e 'dTLB-load-misses,dTLB-loads'         -e 'iTLB-load-misses,iTLB-loads'         -e 'r2D,r2F'         -e 'r70,r71,r73,r75,r74'         -o ${perf_log_dir}/perf.out         -p ${process_id}          /home/yangyuxuan/from-yang-yikang/testsuite/mysql/sysbench_install/bin/sysbench $b --db-driver=mysql --mysql-user=${user} --mysql-password=${pw} --mysql-host=${host}         --mysql-port=${port} --mysql-db=sysbench --threads=${threads} --report-interval=20 --time=${time_per_case} --mysql-storage-engine=innodb --table-size=${table_size} --tables=${tables} --time=${time_per_case} --warmup-time=${warmup_time} run) > ${perf_log_dir}/run.perf.log 2> ${perf_log_dir}/run.perf.err
+pidof mysqld: 51471
+2023-08-26T09:08:39.709263Z 393 [System] [MY-013172] [Server] Received SHUTDOWN from user root. Shutting down mysqld (Version: 8.0.22).
+2023-08-26T09:09:51.877249Z 0 [System] [MY-010910] [Server] /home/yangyuxuan/from-yang-yikang/testsuite/mysql/mysql-8.0.22/install_baseline/bin/mysqld: Shutdown complete (mysqld 8.0.22)  Source distribution.
+mysqld stopped
+
+=================================================
+[33m case: /home/yangyuxuan/from-yang-yikang/testsuite/mysql/sysbench_install/share/sysbench/oltp_update_non_index.lua [0m
+=================================================
+
+/home/yangyuxuan/from-yang-yikang/testsuite/mysql/test_cases/sysbench
+no mysqld running
+2023-08-26T09:10:22.817838Z 0 [Warning] [MY-000081] [Server] option 'max_prepared_stmt_count': unsigned value 10000000 adjusted to 4194304.
+2023-08-26T09:10:22.818507Z 0 [System] [MY-013169] [Server] /home/yangyuxuan/from-yang-yikang/testsuite/mysql/mysql-8.0.22/install_baseline/bin/mysqld (mysqld 8.0.22) initializing of server in progress as process 52787
+2023-08-26T09:10:22.847278Z 1 [System] [MY-013576] [InnoDB] InnoDB initialization has started.
+2023-08-26T09:10:29.017782Z 1 [System] [MY-013577] [InnoDB] InnoDB initialization has ended.
+2023-08-26T09:10:46.054286Z 6 [Warning] [MY-010453] [Server] root@localhost is created with an empty password ! Please consider switching off the --initialize-insecure option.
+2023-08-26T09:11:07.720842Z 0 [Warning] [MY-000081] [Server] option 'max_prepared_stmt_count': unsigned value 10000000 adjusted to 4194304.
+2023-08-26T09:11:07.834483Z 0 [Warning] [MY-010099] [Server] Insecure configuration for --secure-file-priv: Data directory is accessible through --secure-file-priv. Consider choosing a different directory.
+2023-08-26T09:11:07.834542Z 0 [System] [MY-010116] [Server] /home/yangyuxuan/from-yang-yikang/testsuite/mysql/mysql-8.0.22/install_baseline/bin/mysqld (mysqld 8.0.22) starting as process 53032
+2023-08-26T09:11:07.841082Z 1 [System] [MY-013576] [InnoDB] InnoDB initialization has started.
+2023-08-26T09:11:09.030364Z 1 [System] [MY-013577] [InnoDB] InnoDB initialization has ended.
+2023-08-26T09:11:09.370050Z 0 [System] [MY-011323] [Server] X Plugin ready for connections. Bind-address: '::' port: 31001, socket: /home/yangyuxuan/from-yang-yikang/testsuite/mysql/test_cases/sysbench/../../tmp/mysqlx_30009.sock
+2023-08-26T09:11:09.912688Z 0 [Warning] [MY-010068] [Server] CA certificate ca.pem is self signed.
+2023-08-26T09:11:09.912901Z 0 [System] [MY-013602] [Server] Channel mysql_main configured to support TLS. Encrypted connections are now supported for this channel.
+2023-08-26T09:11:09.987441Z 0 [System] [MY-010931] [Server] /home/yangyuxuan/from-yang-yikang/testsuite/mysql/mysql-8.0.22/install_baseline/bin/mysqld: ready for connections. Version: '8.0.22'  socket: '/home/yangyuxuan/from-yang-yikang/testsuite/mysql/test_cases/sysbench/../../tmp/mysql_30009.sock'  port: 30009  Source distribution.
+process id is 53032
+
+=================================================
+[33m sysbench prepare [0m
+=================================================
+
+sysbench 1.1.0 (using bundled LuaJIT 2.1.0-beta3)
+
+Initializing worker threads...
+
+Creating table 'sbtest1'...
+Inserting 500000 records into 'sbtest1'
+Creating a secondary index on 'sbtest1'...
+
+=================================================
+[33m sysbench run [0m
+=================================================
+
+(time perf stat -r 2         -e 'instructions,cycles,cycles:u,cycles:k'         -e 'r22,r21,branch-load-misses,branch-loads'         -e 'L1-dcache-load-misses,L1-dcache-loads'         -e 'L1-icache-load-misses,L1-icache-loads'         -e 'r17,r16,r2A,r2B,r37,r36'         -e 'dTLB-load-misses,dTLB-loads'         -e 'iTLB-load-misses,iTLB-loads'         -e 'r2D,r2F'         -e 'r70,r71,r73,r75,r74'         -o ${perf_log_dir}/perf.out         -p ${process_id}          /home/yangyuxuan/from-yang-yikang/testsuite/mysql/sysbench_install/bin/sysbench $b --db-driver=mysql --mysql-user=${user} --mysql-password=${pw} --mysql-host=${host}         --mysql-port=${port} --mysql-db=sysbench --threads=${threads} --report-interval=20 --time=${time_per_case} --mysql-storage-engine=innodb --table-size=${table_size} --tables=${tables} --time=${time_per_case} --warmup-time=${warmup_time} run) > ${perf_log_dir}/run.perf.log 2> ${perf_log_dir}/run.perf.err
+pidof mysqld: 53032
+2023-08-26T09:15:24.835825Z 393 [System] [MY-013172] [Server] Received SHUTDOWN from user root. Shutting down mysqld (Version: 8.0.22).
+2023-08-26T09:16:01.229941Z 0 [System] [MY-010910] [Server] /home/yangyuxuan/from-yang-yikang/testsuite/mysql/mysql-8.0.22/install_baseline/bin/mysqld: Shutdown complete (mysqld 8.0.22)  Source distribution.
+mysqld stopped
+
+=================================================
+[33m case: /home/yangyuxuan/from-yang-yikang/testsuite/mysql/sysbench_install/share/sysbench/oltp_write_only.lua [0m
+=================================================
+
+/home/yangyuxuan/from-yang-yikang/testsuite/mysql/test_cases/sysbench
+no mysqld running
+2023-08-26T09:16:31.934305Z 0 [Warning] [MY-000081] [Server] option 'max_prepared_stmt_count': unsigned value 10000000 adjusted to 4194304.
+2023-08-26T09:16:31.934943Z 0 [System] [MY-013169] [Server] /home/yangyuxuan/from-yang-yikang/testsuite/mysql/mysql-8.0.22/install_baseline/bin/mysqld (mysqld 8.0.22) initializing of server in progress as process 54298
+2023-08-26T09:16:31.964363Z 1 [System] [MY-013576] [InnoDB] InnoDB initialization has started.
+2023-08-26T09:16:37.568618Z 1 [System] [MY-013577] [InnoDB] InnoDB initialization has ended.
+2023-08-26T09:16:53.245312Z 6 [Warning] [MY-010453] [Server] root@localhost is created with an empty password ! Please consider switching off the --initialize-insecure option.
+2023-08-26T09:17:14.649814Z 0 [Warning] [MY-000081] [Server] option 'max_prepared_stmt_count': unsigned value 10000000 adjusted to 4194304.
+2023-08-26T09:17:14.764481Z 0 [Warning] [MY-010099] [Server] Insecure configuration for --secure-file-priv: Data directory is accessible through --secure-file-priv. Consider choosing a different directory.
+2023-08-26T09:17:14.764542Z 0 [System] [MY-010116] [Server] /home/yangyuxuan/from-yang-yikang/testsuite/mysql/mysql-8.0.22/install_baseline/bin/mysqld (mysqld 8.0.22) starting as process 54541
+2023-08-26T09:17:14.771120Z 1 [System] [MY-013576] [InnoDB] InnoDB initialization has started.
+2023-08-26T09:17:16.053673Z 1 [System] [MY-013577] [InnoDB] InnoDB initialization has ended.
+2023-08-26T09:17:16.435113Z 0 [System] [MY-011323] [Server] X Plugin ready for connections. Bind-address: '::' port: 31001, socket: /home/yangyuxuan/from-yang-yikang/testsuite/mysql/test_cases/sysbench/../../tmp/mysqlx_30009.sock
+2023-08-26T09:17:17.194425Z 0 [Warning] [MY-010068] [Server] CA certificate ca.pem is self signed.
+2023-08-26T09:17:17.194642Z 0 [System] [MY-013602] [Server] Channel mysql_main configured to support TLS. Encrypted connections are now supported for this channel.
+2023-08-26T09:17:17.346321Z 0 [System] [MY-010931] [Server] /home/yangyuxuan/from-yang-yikang/testsuite/mysql/mysql-8.0.22/install_baseline/bin/mysqld: ready for connections. Version: '8.0.22'  socket: '/home/yangyuxuan/from-yang-yikang/testsuite/mysql/test_cases/sysbench/../../tmp/mysql_30009.sock'  port: 30009  Source distribution.
+process id is 54541
+
+=================================================
+[33m sysbench prepare [0m
+=================================================
+
+sysbench 1.1.0 (using bundled LuaJIT 2.1.0-beta3)
+
+Initializing worker threads...
+
+Creating table 'sbtest1'...
+Inserting 500000 records into 'sbtest1'
+Creating a secondary index on 'sbtest1'...
+
+=================================================
+[33m sysbench run [0m
+=================================================
+
+(time perf stat -r 2         -e 'instructions,cycles,cycles:u,cycles:k'         -e 'r22,r21,branch-load-misses,branch-loads'         -e 'L1-dcache-load-misses,L1-dcache-loads'         -e 'L1-icache-load-misses,L1-icache-loads'         -e 'r17,r16,r2A,r2B,r37,r36'         -e 'dTLB-load-misses,dTLB-loads'         -e 'iTLB-load-misses,iTLB-loads'         -e 'r2D,r2F'         -e 'r70,r71,r73,r75,r74'         -o ${perf_log_dir}/perf.out         -p ${process_id}          /home/yangyuxuan/from-yang-yikang/testsuite/mysql/sysbench_install/bin/sysbench $b --db-driver=mysql --mysql-user=${user} --mysql-password=${pw} --mysql-host=${host}         --mysql-port=${port} --mysql-db=sysbench --threads=${threads} --report-interval=20 --time=${time_per_case} --mysql-storage-engine=innodb --table-size=${table_size} --tables=${tables} --time=${time_per_case} --warmup-time=${warmup_time} run) > ${perf_log_dir}/run.perf.log 2> ${perf_log_dir}/run.perf.err
+pidof mysqld: 54541
+2023-08-26T09:21:39.290856Z 393 [System] [MY-013172] [Server] Received SHUTDOWN from user root. Shutting down mysqld (Version: 8.0.22).
+2023-08-26T09:22:35.420896Z 0 [System] [MY-010910] [Server] /home/yangyuxuan/from-yang-yikang/testsuite/mysql/mysql-8.0.22/install_baseline/bin/mysqld: Shutdown complete (mysqld 8.0.22)  Source distribution.
+mysqld stopped
+
+=================================================
+[33m case: /home/yangyuxuan/from-yang-yikang/testsuite/mysql/sysbench_install/share/sysbench/select_random_points.lua [0m
+=================================================
+
+/home/yangyuxuan/from-yang-yikang/testsuite/mysql/test_cases/sysbench
+no mysqld running
+2023-08-26T09:23:06.389558Z 0 [Warning] [MY-000081] [Server] option 'max_prepared_stmt_count': unsigned value 10000000 adjusted to 4194304.
+2023-08-26T09:23:06.390210Z 0 [System] [MY-013169] [Server] /home/yangyuxuan/from-yang-yikang/testsuite/mysql/mysql-8.0.22/install_baseline/bin/mysqld (mysqld 8.0.22) initializing of server in progress as process 55859
+2023-08-26T09:23:06.424246Z 1 [System] [MY-013576] [InnoDB] InnoDB initialization has started.
+2023-08-26T09:23:13.203169Z 1 [System] [MY-013577] [InnoDB] InnoDB initialization has ended.
+2023-08-26T09:23:27.581310Z 6 [Warning] [MY-010453] [Server] root@localhost is created with an empty password ! Please consider switching off the --initialize-insecure option.
+2023-08-26T09:23:48.779834Z 0 [Warning] [MY-000081] [Server] option 'max_prepared_stmt_count': unsigned value 10000000 adjusted to 4194304.
+2023-08-26T09:23:48.904493Z 0 [Warning] [MY-010099] [Server] Insecure configuration for --secure-file-priv: Data directory is accessible through --secure-file-priv. Consider choosing a different directory.
+2023-08-26T09:23:48.904555Z 0 [System] [MY-010116] [Server] /home/yangyuxuan/from-yang-yikang/testsuite/mysql/mysql-8.0.22/install_baseline/bin/mysqld (mysqld 8.0.22) starting as process 56102
+2023-08-26T09:23:48.911158Z 1 [System] [MY-013576] [InnoDB] InnoDB initialization has started.
+2023-08-26T09:23:50.297427Z 1 [System] [MY-013577] [InnoDB] InnoDB initialization has ended.
+2023-08-26T09:23:50.647555Z 0 [System] [MY-011323] [Server] X Plugin ready for connections. Bind-address: '::' port: 31001, socket: /home/yangyuxuan/from-yang-yikang/testsuite/mysql/test_cases/sysbench/../../tmp/mysqlx_30009.sock
+2023-08-26T09:23:51.173574Z 0 [Warning] [MY-010068] [Server] CA certificate ca.pem is self signed.
+2023-08-26T09:23:51.173788Z 0 [System] [MY-013602] [Server] Channel mysql_main configured to support TLS. Encrypted connections are now supported for this channel.
+2023-08-26T09:23:51.229186Z 0 [System] [MY-010931] [Server] /home/yangyuxuan/from-yang-yikang/testsuite/mysql/mysql-8.0.22/install_baseline/bin/mysqld: ready for connections. Version: '8.0.22'  socket: '/home/yangyuxuan/from-yang-yikang/testsuite/mysql/test_cases/sysbench/../../tmp/mysql_30009.sock'  port: 30009  Source distribution.
+process id is 56102
+
+=================================================
+[33m sysbench prepare [0m
+=================================================
+
+sysbench 1.1.0 (using bundled LuaJIT 2.1.0-beta3)
+
+Initializing worker threads...
+
+Creating table 'sbtest1'...
+Inserting 500000 records into 'sbtest1'
+Creating a secondary index on 'sbtest1'...
+
+=================================================
+[33m sysbench run [0m
+=================================================
+
+(time perf stat -r 2         -e 'instructions,cycles,cycles:u,cycles:k'         -e 'r22,r21,branch-load-misses,branch-loads'         -e 'L1-dcache-load-misses,L1-dcache-loads'         -e 'L1-icache-load-misses,L1-icache-loads'         -e 'r17,r16,r2A,r2B,r37,r36'         -e 'dTLB-load-misses,dTLB-loads'         -e 'iTLB-load-misses,iTLB-loads'         -e 'r2D,r2F'         -e 'r70,r71,r73,r75,r74'         -o ${perf_log_dir}/perf.out         -p ${process_id}          /home/yangyuxuan/from-yang-yikang/testsuite/mysql/sysbench_install/bin/sysbench $b --db-driver=mysql --mysql-user=${user} --mysql-password=${pw} --mysql-host=${host}         --mysql-port=${port} --mysql-db=sysbench --threads=${threads} --report-interval=20 --time=${time_per_case} --mysql-storage-engine=innodb --table-size=${table_size} --tables=${tables} --time=${time_per_case} --warmup-time=${warmup_time} run) > ${perf_log_dir}/run.perf.log 2> ${perf_log_dir}/run.perf.err
+pidof mysqld: 56102
+2023-08-26T09:28:09.380706Z 393 [System] [MY-013172] [Server] Received SHUTDOWN from user root. Shutting down mysqld (Version: 8.0.22).
+2023-08-26T09:28:11.012718Z 0 [System] [MY-010910] [Server] /home/yangyuxuan/from-yang-yikang/testsuite/mysql/mysql-8.0.22/install_baseline/bin/mysqld: Shutdown complete (mysqld 8.0.22)  Source distribution.
+mysqld stopped
+
+=================================================
+[33m case: /home/yangyuxuan/from-yang-yikang/testsuite/mysql/sysbench_install/share/sysbench/select_random_ranges.lua [0m
+=================================================
+
+/home/yangyuxuan/from-yang-yikang/testsuite/mysql/test_cases/sysbench
+no mysqld running
+2023-08-26T09:28:41.475299Z 0 [Warning] [MY-000081] [Server] option 'max_prepared_stmt_count': unsigned value 10000000 adjusted to 4194304.
+2023-08-26T09:28:41.475951Z 0 [System] [MY-013169] [Server] /home/yangyuxuan/from-yang-yikang/testsuite/mysql/mysql-8.0.22/install_baseline/bin/mysqld (mysqld 8.0.22) initializing of server in progress as process 57277
+2023-08-26T09:28:41.523913Z 1 [System] [MY-013576] [InnoDB] InnoDB initialization has started.
+2023-08-26T09:28:48.377789Z 1 [System] [MY-013577] [InnoDB] InnoDB initialization has ended.
+2023-08-26T09:28:59.620521Z 6 [Warning] [MY-010453] [Server] root@localhost is created with an empty password ! Please consider switching off the --initialize-insecure option.
+2023-08-26T09:29:18.610742Z 0 [Warning] [MY-000081] [Server] option 'max_prepared_stmt_count': unsigned value 10000000 adjusted to 4194304.
+2023-08-26T09:29:18.724477Z 0 [Warning] [MY-010099] [Server] Insecure configuration for --secure-file-priv: Data directory is accessible through --secure-file-priv. Consider choosing a different directory.
+2023-08-26T09:29:18.724534Z 0 [System] [MY-010116] [Server] /home/yangyuxuan/from-yang-yikang/testsuite/mysql/mysql-8.0.22/install_baseline/bin/mysqld (mysqld 8.0.22) starting as process 57518
+2023-08-26T09:29:18.731101Z 1 [System] [MY-013576] [InnoDB] InnoDB initialization has started.
+2023-08-26T09:29:19.978396Z 1 [System] [MY-013577] [InnoDB] InnoDB initialization has ended.
+2023-08-26T09:29:20.299309Z 0 [System] [MY-011323] [Server] X Plugin ready for connections. Bind-address: '::' port: 31001, socket: /home/yangyuxuan/from-yang-yikang/testsuite/mysql/test_cases/sysbench/../../tmp/mysqlx_30009.sock
+2023-08-26T09:29:20.884039Z 0 [Warning] [MY-010068] [Server] CA certificate ca.pem is self signed.
+2023-08-26T09:29:20.884255Z 0 [System] [MY-013602] [Server] Channel mysql_main configured to support TLS. Encrypted connections are now supported for this channel.
+2023-08-26T09:29:21.006405Z 0 [System] [MY-010931] [Server] /home/yangyuxuan/from-yang-yikang/testsuite/mysql/mysql-8.0.22/install_baseline/bin/mysqld: ready for connections. Version: '8.0.22'  socket: '/home/yangyuxuan/from-yang-yikang/testsuite/mysql/test_cases/sysbench/../../tmp/mysql_30009.sock'  port: 30009  Source distribution.
+process id is 57518
+
+=================================================
+[33m sysbench prepare [0m
+=================================================
+
+sysbench 1.1.0 (using bundled LuaJIT 2.1.0-beta3)
+
+Initializing worker threads...
+
+Creating table 'sbtest1'...
+Inserting 500000 records into 'sbtest1'
+Creating a secondary index on 'sbtest1'...
+
+=================================================
+[33m sysbench run [0m
+=================================================
+
+(time perf stat -r 2         -e 'instructions,cycles,cycles:u,cycles:k'         -e 'r22,r21,branch-load-misses,branch-loads'         -e 'L1-dcache-load-misses,L1-dcache-loads'         -e 'L1-icache-load-misses,L1-icache-loads'         -e 'r17,r16,r2A,r2B,r37,r36'         -e 'dTLB-load-misses,dTLB-loads'         -e 'iTLB-load-misses,iTLB-loads'         -e 'r2D,r2F'         -e 'r70,r71,r73,r75,r74'         -o ${perf_log_dir}/perf.out         -p ${process_id}          /home/yangyuxuan/from-yang-yikang/testsuite/mysql/sysbench_install/bin/sysbench $b --db-driver=mysql --mysql-user=${user} --mysql-password=${pw} --mysql-host=${host}         --mysql-port=${port} --mysql-db=sysbench --threads=${threads} --report-interval=20 --time=${time_per_case} --mysql-storage-engine=innodb --table-size=${table_size} --tables=${tables} --time=${time_per_case} --warmup-time=${warmup_time} run) > ${perf_log_dir}/run.perf.log 2> ${perf_log_dir}/run.perf.err
+pidof mysqld: 57518
+2023-08-26T09:33:35.008353Z 393 [System] [MY-013172] [Server] Received SHUTDOWN from user root. Shutting down mysqld (Version: 8.0.22).
+2023-08-26T09:33:36.560511Z 0 [System] [MY-010910] [Server] /home/yangyuxuan/from-yang-yikang/testsuite/mysql/mysql-8.0.22/install_baseline/bin/mysqld: Shutdown complete (mysqld 8.0.22)  Source distribution.
+mysqld stopped
