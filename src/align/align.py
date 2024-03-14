@@ -284,6 +284,10 @@ def align(target_miss_rate_dic, gen_list, epochs, num_ins):
             li = []
             for i in range(len(test_result_li)):
                 li.append(DMPI_li[i]-DAPI_li[i]*target_miss_rate_dic["l1d_cache_miss"])
+                # print(f"dcache misses per instruction[{i}]:\t{DMPI_li[i]}")
+                # print(f"dcache per instruction[{i}]:\t\t{DAPI_li[i]}")
+                # print(f'target_miss_rate_dic["l1d_cache_miss"]:\t{target_miss_rate_dic["l1d_cache_miss"]}')
+                # print(f'{DAPI_li[i]*target_miss_rate_dic["l1d_cache_miss"]}\n')
             A.append(li)
             if last_test_result is not None:
                 b.append(last_test_result.feature_dic["l1d_cache"] * target_miss_rate_dic["l1d_cache_miss"]
@@ -420,6 +424,7 @@ def align(target_miss_rate_dic, gen_list, epochs, num_ins):
             li = []
             for i in range(len(test_result_li)):
                 li.append(test_result_li[i].feature_dic["int"]-target_miss_rate_dic["int"])
+                # print(f'int{i}: {test_result_li[i].feature_dic["int"]}\n')
             A.append(li)
             if last_test_result is not None:
                 b.append(last_test_result.feature_dic["instructions"]*target_miss_rate_dic["int"]
@@ -449,6 +454,7 @@ def align(target_miss_rate_dic, gen_list, epochs, num_ins):
             else:
                 b.append(0)
         li = []
+        print("total chosen count: ", len(test_result_li))
         for i in range(len(test_result_li)):
             li.append(1)
         A.append(li)
@@ -470,8 +476,20 @@ def align(target_miss_rate_dic, gen_list, epochs, num_ins):
             b.append(num_ins)
             for i in range(len(A)-1):
                 total = sum(A[i])
+                # total = math.sqrt(sum(x ** 2 for x in A[i]))
+                # print("total", total)
+                count = 0
                 for j in range(len(A[i])):
-                    A[i][j] /= abs(total)
+                    A[i][j] = A[i][j]  / abs(total)
+                    # if abs(A[i][j]) < 1e-5:
+                    #     A[i][j] = 0.0
+                #     if abs(A[i][j]) < 1e-4:
+                #         count = 2
+                #     if abs(A[i][j]) < 1e-5:
+                #         count = 3
+                # for j in range(len(A[i])):
+                #     A[i][j] *= 10 ** count
+                # here
         # print(A)
         # print(b)
         res0 = nnls(A,b)
@@ -493,10 +511,6 @@ def align(target_miss_rate_dic, gen_list, epochs, num_ins):
                 "l1d_cache_miss": ("l1d_cache_misses", "l1d_cache"),
                 "l1i_cache_load_miss": ("l1i_cache_load_misses", "l1i_cache_loads"),
                 "l2_cache_miss": ("l2_cache_misses", "l2_cache"),
-                "l3_cache_miss": ("l3_cache_misses", "l3_cache"),
-                "dtlb_miss": ("dtlb_misses", "dtlb"),
-                "itlb_miss": ("itlb_misses", "itlb"),
-                # "stlb_miss": ("stlb_misses", "stlb"),
                 "branch_miss": ("branch_misses", "branch_instructions"),
                 "load": ("loads", "instructions"),
                 "store": ("stores", "instructions"),
@@ -504,7 +518,6 @@ def align(target_miss_rate_dic, gen_list, epochs, num_ins):
                 "fp": ("fps", "instructions"),
                 "int": ("ints", "instructions"),
                 "vector": ("vector_uops", "instructions"),
-                "other": ("others", "instructions"),
                 "cpi": ("cycles", "instructions"),
         }
         ans_li =[]
@@ -561,7 +574,7 @@ def align(target_miss_rate_dic, gen_list, epochs, num_ins):
         # for i in range(size):
         #     if isinstance(gen_li[i],generator4.Cache):
         #         # s += "\t.data\n"
-        #         s += gen_li[i].declare_var()
+        #         s += gen_li[i].declare_var(0)
         #         break
         count = 0
         for i in range(size):
@@ -660,7 +673,8 @@ def align(target_miss_rate_dic, gen_list, epochs, num_ins):
             # # 调试END
 
     # gen_li = gen_list
-    # sys.exit()
+    
+    # there
 
     test_result_li = []
     size = len(gen_li)
@@ -860,7 +874,7 @@ if __name__ == "__main__":
     target_int = float(os.getenv("target_int"))
     target_vector = float(os.getenv("target_vector"))
     target_other = float(os.getenv("target_other"))
-    target_cpi = 1 / float(os.getenv("target_ipc"))
+    target_cpi = float(os.getenv("target_cpi"))
 
     type_names = ["access_function", "access_memory", "branch_prediction", "arithm2"]
     gen_list = []
@@ -868,25 +882,27 @@ if __name__ == "__main__":
         gen_list += get_gen_list(path_dic[type_name], type_name)
 
     target_miss_rate_dic = {
-        "l1d_cache_miss": target_l1d_cache_miss,
-        "l1i_cache_load_miss": target_l1i_cache_load_miss,
-        "l2_cache_miss": target_l2_cache_miss,
-        # "l3_cache_miss": target_l3_cache_miss, # 
-        "dtlb_miss": target_dtlb_miss,
-        "itlb_miss": target_itlb_miss,
-        "branch_miss": target_branch_miss,
-        "load": target_load,
-        "store": target_store,
-        "br": target_br,
-        "cpi": target_cpi,
-        "int": target_int,
-        "fp": target_fp,
-        "vector": target_vector,
+        "l1d_cache_miss": target_l1d_cache_miss if target_l1d_cache_miss >= 1e-4 else None,
+        "l1i_cache_load_miss": target_l1i_cache_load_miss if target_l1i_cache_load_miss >= 1e-4 else None,
+        # "l2_cache_miss": target_l2_cache_miss if target_l2_cache_miss >= 1e-4 else None,
+        "branch_miss": target_branch_miss if target_branch_miss >= 1e-4 else None,
+        "load": target_load if target_load >= 1e-4 else None,
+        "store": target_store if target_store >= 1e-4 else None,
+        "br": target_br if target_br >= 1e-4 else None,
+        "cpi": target_cpi if target_cpi >= 1e-4 else None,
+        "int": target_int if target_int >= 1e-4 else None,
+        "fp": target_fp if target_fp >= 1e-4 else None,
+        "vector": target_vector if target_vector >= 1e-4 else None,
     }
+
+    target_miss_rate_dic = {k: v for k, v in target_miss_rate_dic.items() if v is not None}
+
+
     # df = pd.DataFrame.from_dict(target_miss_rate_dic, orient='index')
     # print(df)
     # epochs = 10
     epochs = 5
-    num_ins = 300000000
+    # num_ins = 500000000
+    num_ins = 1000000000
     align(target_miss_rate_dic, gen_list, epochs, num_ins)
 

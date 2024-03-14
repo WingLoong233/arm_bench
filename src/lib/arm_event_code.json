@@ -3,6 +3,8 @@
     "events": {
       "r8": "INST_RETIRED",
       "r11": "CPU_CYCLES",
+      "r10": "BR_MIS_PRED_RETIRED",
+      "r12": "BR_RETIRED",
       "r22": "BR_MIS_PRED_RETIRED",
       "r21": "BR_RETIRED",
       "r3": "L1D_CACHE_REFILL",

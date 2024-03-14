@@ -6,10 +6,10 @@ if [ ! -d "$work_dir" ]; then
 fi
 source ${root_dir}/../lib/perf.sh
 
-let "i=1"
+let "i=0"
 while [ $i -le 1023 ]
-# let "i=1"
-# while [ $i -le 1 ]
+# let "i=0"
+# while [ $i -lt 1 ]
 do
     export bench_name=threshold${i}
     export bias_flag=False
@@ -30,7 +30,13 @@ do
     execution_time=$((end_time - start_time))
     echo "execution time : $execution_time s"
 
-    # let "i=i+1"
-    let "i=i+10"
+    # if [ $i -lt 1 ];then
+    #     let "i=i+1"
+    # else
+    #     let "i=i+1"
+    # fi
+    let "i=i+1"
+    # let "i=i+10"
 done
 python3 ${root_dir}/parse_perf_stat_westmere.py
+

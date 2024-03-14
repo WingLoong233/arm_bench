@@ -1,0 +1,14 @@
+,0
+vector_add,0.96153182000867
+mul_r32,0.0
+smull_r32,0.0
+sub_r32_r32,0.0
+add_r32_r32,0.0
+smulh_r64,0.0
+mov,0.0
+float_add,0.0
+nop,0.0
+syscall,0.0
+mul_r64,0.0
+div_r64,0.0
+ILP4_add_0_r32,0.0

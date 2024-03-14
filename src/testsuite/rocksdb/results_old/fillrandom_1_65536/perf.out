@@ -1,0 +1,31 @@
+# started on Sat Feb  3 23:56:52 2024
+
+
+ Performance counter stats for process id '103258':
+
+   849,390,488,233      INST_RETIRED                                                                      (52.15%)
+   772,229,326,541      CPU_CYCLES                                                                     (56.49%)
+     7,357,334,993      BR_MIS_PRED_RETIRED                                                                     (56.50%)
+   110,498,288,115      BR_RETIRED                                                                     (56.50%)
+    24,615,014,922      L1D_CACHE_REFILL                                                                      (56.49%)
+   339,008,784,151      L1D_CACHE                                                                      (56.49%)
+     1,386,294,298      L1I_CACHE_REFILL                                                                      (56.53%)
+   370,151,616,190      L1I_CACHE                                                                     (56.53%)
+     7,561,903,435      L2D_CACHE_REFILL                                                                     (56.50%)
+    64,625,483,431      L2D_CACHE                                                                     (56.51%)
+       607,673,932      LL_CACHE_MISS_RD                                                                     (56.51%)
+     5,676,564,643      LL_CACHE_RD                                                                     (56.53%)
+    23,504,238,851      L1D_TLB_REFILL                                                                      (56.54%)
+   427,574,420,792      L1D_TLB                                                                     (56.55%)
+     1,219,198,709      L1I_TLB_REFILL                                                                      (52.20%)
+   370,405,171,073      L1I_TLB                                                                     (52.20%)
+       245,582,653      L2TLB_REFILL                                                                     (52.18%)
+    29,585,289,282      L2TLB_REQ                                                                     (52.18%)
+   355,121,434,807      LD_SPEC                                                                     (52.19%)
+   122,964,354,252      ST_SPEC                                                                     (52.18%)
+   849,441,872,535      DP_SPEC                                                                     (52.19%)
+       206,314,927      VFP_SPEC                                                                     (52.17%)
+       458,780,641      ASE_SPEC                                                                     (52.17%)
+
+     600.003271750 seconds time elapsed
+

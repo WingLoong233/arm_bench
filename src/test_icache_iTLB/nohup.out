@@ -1,0 +1,312 @@
+stride:		1
+change_flag:	True
+make: Entering directory '/home/ubuntu/arm_bench/src/test_icache_iTLB/generate'
+gcc -o stride1c.o -c stride1c.S
+gcc -o stride1c stride1c.o func12.o
+chmod +x stride1c
+mv stride1c ../build/stride1c
+rm -f stride1c.o
+make: Leaving directory '/home/ubuntu/arm_bench/src/test_icache_iTLB/generate'
+~~~~~~
+-1
++ set +x
+execution time : 1 s
+stride:		2
+change_flag:	True
+make: Entering directory '/home/ubuntu/arm_bench/src/test_icache_iTLB/generate'
+gcc -o stride2c.o -c stride2c.S
+gcc -o stride2c stride2c.o func12.o
+chmod +x stride2c
+mv stride2c ../build/stride2c
+rm -f stride2c.o
+make: Leaving directory '/home/ubuntu/arm_bench/src/test_icache_iTLB/generate'
+~~~~~~
+-1
++ set +x
+execution time : 0 s
+stride:		4
+change_flag:	True
+make: Entering directory '/home/ubuntu/arm_bench/src/test_icache_iTLB/generate'
+gcc -o stride4c.o -c stride4c.S
+gcc -o stride4c stride4c.o func12.o
+chmod +x stride4c
+mv stride4c ../build/stride4c
+rm -f stride4c.o
+make: Leaving directory '/home/ubuntu/arm_bench/src/test_icache_iTLB/generate'
+~~~~~~
+-1
++ set +x
+execution time : 0 s
+stride:		8
+change_flag:	True
+make: Entering directory '/home/ubuntu/arm_bench/src/test_icache_iTLB/generate'
+gcc -o stride8c.o -c stride8c.S
+gcc -o stride8c stride8c.o func12.o
+chmod +x stride8c
+mv stride8c ../build/stride8c
+rm -f stride8c.o
+make: Leaving directory '/home/ubuntu/arm_bench/src/test_icache_iTLB/generate'
+~~~~~~
+-1
++ set +x
+execution time : 0 s
+stride:		16
+change_flag:	True
+make: Entering directory '/home/ubuntu/arm_bench/src/test_icache_iTLB/generate'
+gcc -o stride16c.o -c stride16c.S
+gcc -o stride16c stride16c.o func12.o
+chmod +x stride16c
+mv stride16c ../build/stride16c
+rm -f stride16c.o
+make: Leaving directory '/home/ubuntu/arm_bench/src/test_icache_iTLB/generate'
+~~~~~~
+-1
++ set +x
+execution time : 0 s
+stride:		32
+change_flag:	True
+make: Entering directory '/home/ubuntu/arm_bench/src/test_icache_iTLB/generate'
+gcc -o stride32c.o -c stride32c.S
+gcc -o stride32c stride32c.o func12.o
+chmod +x stride32c
+mv stride32c ../build/stride32c
+rm -f stride32c.o
+make: Leaving directory '/home/ubuntu/arm_bench/src/test_icache_iTLB/generate'
+~~~~~~
+-1
++ set +x
+execution time : 0 s
+stride:		64
+change_flag:	True
+make: Entering directory '/home/ubuntu/arm_bench/src/test_icache_iTLB/generate'
+gcc -o stride64c.o -c stride64c.S
+gcc -o stride64c stride64c.o func12.o
+chmod +x stride64c
+mv stride64c ../build/stride64c
+rm -f stride64c.o
+make: Leaving directory '/home/ubuntu/arm_bench/src/test_icache_iTLB/generate'
+~~~~~~
+-1
++ set +x
+execution time : 1 s
+stride:		128
+change_flag:	True
+make: Entering directory '/home/ubuntu/arm_bench/src/test_icache_iTLB/generate'
+gcc -o stride128c.o -c stride128c.S
+gcc -o stride128c stride128c.o func12.o
+chmod +x stride128c
+mv stride128c ../build/stride128c
+rm -f stride128c.o
+make: Leaving directory '/home/ubuntu/arm_bench/src/test_icache_iTLB/generate'
+~~~~~~
+-1
++ set +x
+execution time : 3 s
+stride:		256
+change_flag:	True
+make: Entering directory '/home/ubuntu/arm_bench/src/test_icache_iTLB/generate'
+gcc -o stride256c.o -c stride256c.S
+gcc -o stride256c stride256c.o func12.o
+chmod +x stride256c
+mv stride256c ../build/stride256c
+rm -f stride256c.o
+make: Leaving directory '/home/ubuntu/arm_bench/src/test_icache_iTLB/generate'
+~~~~~~
+-1
++ set +x
+execution time : 3 s
+stride:		512
+change_flag:	True
+make: Entering directory '/home/ubuntu/arm_bench/src/test_icache_iTLB/generate'
+gcc -o stride512c.o -c stride512c.S
+gcc -o stride512c stride512c.o func12.o
+chmod +x stride512c
+mv stride512c ../build/stride512c
+rm -f stride512c.o
+make: Leaving directory '/home/ubuntu/arm_bench/src/test_icache_iTLB/generate'
+~~~~~~
+-1
++ set +x
+execution time : 4 s
+stride:		1
+change_flag:	False
+make: Entering directory '/home/ubuntu/arm_bench/src/test_icache_iTLB/generate'
+gcc -o stride1.o -c stride1.S
+gcc -o stride1 stride1.o func11.o
+chmod +x stride1
+mv stride1 ../build/stride1
+rm -f stride1.o
+make: Leaving directory '/home/ubuntu/arm_bench/src/test_icache_iTLB/generate'
+~~~~~~
+-1
++ set +x
+execution time : 3 s
+stride:		2
+change_flag:	False
+make: Entering directory '/home/ubuntu/arm_bench/src/test_icache_iTLB/generate'
+gcc -o stride2.o -c stride2.S
+gcc -o stride2 stride2.o func11.o
+chmod +x stride2
+mv stride2 ../build/stride2
+rm -f stride2.o
+make: Leaving directory '/home/ubuntu/arm_bench/src/test_icache_iTLB/generate'
+~~~~~~
+-1
++ set +x
+execution time : 1 s
+stride:		4
+change_flag:	False
+make: Entering directory '/home/ubuntu/arm_bench/src/test_icache_iTLB/generate'
+gcc -o stride4.o -c stride4.S
+gcc -o stride4 stride4.o func11.o
+chmod +x stride4
+mv stride4 ../build/stride4
+rm -f stride4.o
+make: Leaving directory '/home/ubuntu/arm_bench/src/test_icache_iTLB/generate'
+~~~~~~
+-1
++ set +x
+execution time : 2 s
+stride:		8
+change_flag:	False
+make: Entering directory '/home/ubuntu/arm_bench/src/test_icache_iTLB/generate'
+gcc -o stride8.o -c stride8.S
+gcc -o stride8 stride8.o func11.o
+chmod +x stride8
+mv stride8 ../build/stride8
+rm -f stride8.o
+make: Leaving directory '/home/ubuntu/arm_bench/src/test_icache_iTLB/generate'
+~~~~~~
+-1
++ set +x
+execution time : 2 s
+stride:		16
+change_flag:	False
+make: Entering directory '/home/ubuntu/arm_bench/src/test_icache_iTLB/generate'
+gcc -o stride16.o -c stride16.S
+gcc -o stride16 stride16.o func11.o
+chmod +x stride16
+mv stride16 ../build/stride16
+rm -f stride16.o
+make: Leaving directory '/home/ubuntu/arm_bench/src/test_icache_iTLB/generate'
+~~~~~~
+-1
++ set +x
+execution time : 2 s
+stride:		32
+change_flag:	False
+make: Entering directory '/home/ubuntu/arm_bench/src/test_icache_iTLB/generate'
+gcc -o stride32.o -c stride32.S
+gcc -o stride32 stride32.o func11.o
+chmod +x stride32
+mv stride32 ../build/stride32
+rm -f stride32.o
+make: Leaving directory '/home/ubuntu/arm_bench/src/test_icache_iTLB/generate'
+~~~~~~
+-1
++ set +x
+execution time : 2 s
+stride:		64
+change_flag:	False
+make: Entering directory '/home/ubuntu/arm_bench/src/test_icache_iTLB/generate'
+gcc -o stride64.o -c stride64.S
+gcc -o stride64 stride64.o func11.o
+chmod +x stride64
+mv stride64 ../build/stride64
+rm -f stride64.o
+make: Leaving directory '/home/ubuntu/arm_bench/src/test_icache_iTLB/generate'
+~~~~~~
+-1
++ set +x
+execution time : 1 s
+stride:		128
+change_flag:	False
+make: Entering directory '/home/ubuntu/arm_bench/src/test_icache_iTLB/generate'
+gcc -o stride128.o -c stride128.S
+gcc -o stride128 stride128.o func11.o
+chmod +x stride128
+mv stride128 ../build/stride128
+rm -f stride128.o
+make: Leaving directory '/home/ubuntu/arm_bench/src/test_icache_iTLB/generate'
+~~~~~~
+-1
++ set +x
+execution time : 3 s
+stride:		256
+change_flag:	False
+make: Entering directory '/home/ubuntu/arm_bench/src/test_icache_iTLB/generate'
+gcc -o stride256.o -c stride256.S
+gcc -o stride256 stride256.o func11.o
+chmod +x stride256
+mv stride256 ../build/stride256
+rm -f stride256.o
+make: Leaving directory '/home/ubuntu/arm_bench/src/test_icache_iTLB/generate'
+~~~~~~
+-1
++ set +x
+execution time : 4 s
+stride:		512
+change_flag:	False
+make: Entering directory '/home/ubuntu/arm_bench/src/test_icache_iTLB/generate'
+gcc -o stride512.o -c stride512.S
+gcc -o stride512 stride512.o func11.o
+chmod +x stride512
+mv stride512 ../build/stride512
+rm -f stride512.o
+make: Leaving directory '/home/ubuntu/arm_bench/src/test_icache_iTLB/generate'
+~~~~~~
+-1
++ set +x
+execution time : 5 s
+stride:		1024
+change_flag:	False
+make: Entering directory '/home/ubuntu/arm_bench/src/test_icache_iTLB/generate'
+gcc -o stride1024.o -c stride1024.S
+gcc -o stride1024 stride1024.o func11.o
+chmod +x stride1024
+mv stride1024 ../build/stride1024
+rm -f stride1024.o
+make: Leaving directory '/home/ubuntu/arm_bench/src/test_icache_iTLB/generate'
+~~~~~~
+-1
++ set +x
+execution time : 6 s
+stride:		2048
+change_flag:	False
+make: Entering directory '/home/ubuntu/arm_bench/src/test_icache_iTLB/generate'
+gcc -o stride2048.o -c stride2048.S
+gcc -o stride2048 stride2048.o func11.o
+chmod +x stride2048
+mv stride2048 ../build/stride2048
+rm -f stride2048.o
+make: Leaving directory '/home/ubuntu/arm_bench/src/test_icache_iTLB/generate'
+~~~~~~
+-1
++ set +x
+execution time : 6 s
+stride:		4096
+change_flag:	False
+make: Entering directory '/home/ubuntu/arm_bench/src/test_icache_iTLB/generate'
+gcc -o stride4096.o -c stride4096.S
+gcc -o stride4096 stride4096.o func11.o
+chmod +x stride4096
+mv stride4096 ../build/stride4096
+rm -f stride4096.o
+make: Leaving directory '/home/ubuntu/arm_bench/src/test_icache_iTLB/generate'
+~~~~~~
+-1
++ set +x
+execution time : 6 s
+stride:		8192
+change_flag:	False
+make: Entering directory '/home/ubuntu/arm_bench/src/test_icache_iTLB/generate'
+gcc -o stride8192.o -c stride8192.S
+gcc -o stride8192 stride8192.o func11.o
+chmod +x stride8192
+mv stride8192 ../build/stride8192
+rm -f stride8192.o
+make: Leaving directory '/home/ubuntu/arm_bench/src/test_icache_iTLB/generate'
+~~~~~~
+-1
++ set +x
+execution time : 6 s

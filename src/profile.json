@@ -46,16 +46,31 @@
     "float_add": {
       "head": "\tfmov\ts0, 1.0e+0\n\tfmov\ts1, 1.0e+0\n",
       "instruction": "fadd\ts0, s1, s0\nfadd\ts0, s1, s0\nfadd\ts0, s1, s0\nfadd\ts0, s1, s0\n",
+      "outer_number": 100000,
+      "inner_number": 10,
+      "inner_num_ins": 100
+    },
+    "float_add_1": {
+      "head": "\tfmov\ts0, 1.0e+0\n\tfmov\ts1, 1.0e+0\n",
+      "instruction": "fadd\ts0, s1, s0\nfadd\ts0, s1, s0\nfadd\ts0, s1, s0\nfadd\ts0, s1, s0\n",
       "outer_number": 1000000,
       "inner_number": 10,
-      "inner_num_ins": 80
+      "inner_num_ins": 20
     },
+    "float_add_2": {
+      "head": "\tfmov\ts0, 1.0e+0\n\tfmov\ts1, 1.0e+0\n",
+      "instruction": "fadd\ts0, s1, s0\nfadd\ts0, s1, s0\nfadd\ts0, s1, s0\nfadd\ts0, s1, s0\n",
+      "outer_number": 1000000,
+      "inner_number": 10,
+      "inner_num_ins": 4
+    },
+ 
     "vector_add": {
       "head": "\tmovi\tv0.4s, #0\n\tmovi\tv1.4s, #0\n\tmovi\tv2.4s, #0\n\tmovi\tv3.4s, #0\n",
       "instruction": "add\tv0.4s, v0.4s, v0.4s\nadd\tv1.4s, v1.4s, v1.4s\nadd\tv2.4s, v2.4s, v2.4s\nadd\tv3.4s, v3.4s, v3.4s\n",
-      "outer_number": 1000000,
-      "inner_number": 10,
-      "inner_num_ins": 80
+      "outer_number": 20000000,
+      "inner_number": 2,
+      "inner_num_ins": 20
     },
     "float_add_less": {
       "head": "\tfmov\ts0, 1.0e+0\n\tfmov\ts1, 1.0e+0\n\tfmov\ts2, 1.0e+0\n",
@@ -119,6 +134,20 @@
       "instruction": "sdiv\tx0, x1, x2\n",
       "iterators": 1000000,
       "num_per_iter": 5000
+    },
+    "syscall": {
+      "head": "",
+      "instruction": "bl\tgetpid\n",
+      "outer_number": 200000,
+      "inner_number": 1,
+      "inner_num_ins": 20
+    },
+    "nop": {
+      "head": "",
+      "instruction": "nop\n",
+      "outer_number": 1000000,
+      "inner_number": 10,
+      "inner_num_ins": 50
     },
     "mov": {
       "head": "",
@@ -437,7 +466,7 @@
     "array_size": 16777216,
     "array_size_big": 268435456,
     "inner_number": 512,
-    "outer_number": 5000000,
+    "outer_number": 1000000,
     "stride0": {
       "stride": 0
     },
@@ -456,8 +485,8 @@
     "cache_sets": 128,
     "cache_ways": 4,
     "array_size": 6291456,
-    "inner_number": 2048,
-    "outer_number": 50000,
+    "inner_number": 512,
+    "outer_number": 300000,
     "note": "arary_size means the length of all funcs. There are 2^21 funcs in total and every func's length is 3, so array_size=3*2^21"
   },
   "icache_iTLB2": {

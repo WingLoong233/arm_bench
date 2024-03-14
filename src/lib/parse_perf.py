@@ -132,7 +132,7 @@ def parse_perf_stat(WORKSPACE_DIR):
 
     branch_misses  = df["BR_MIS_PRED_RETIRED"]
     branch_instructions = df["BR_RETIRED"]
-    branch_miss = branch_misses / branch_instructions
+    branch_miss = branch_misses.div(branch_instructions, fill_value=0)  
 
     #llc_cache_mpki = 1000. * df["LLC-loads"] / total_ins
     l1i_cache_mpki = 1000. * df["L1I_CACHE_REFILL"] / total_ins
@@ -141,12 +141,12 @@ def parse_perf_stat(WORKSPACE_DIR):
     # metric of L1-dcache
     l1d_cache_misses = df["L1D_CACHE_REFILL"]
     l1d_cache = df["L1D_CACHE"]
-    l1d_cache_miss = l1d_cache_misses / l1d_cache
+    l1d_cache_miss = l1d_cache_misses.div(l1d_cache, fill_value=0)  
 
     # metric of L1-icache
     l1i_cache_load_misses = df["L1I_CACHE_REFILL"]
     l1i_cache_loads = df["L1I_CACHE"]
-    l1i_cache_load_miss = l1i_cache_load_misses / l1i_cache_loads
+    l1i_cache_load_miss = l1i_cache_load_misses.div(l1i_cache_loads, fill_value=0)  
 
 
     # l2_cache_mpki  = 1000. * df["L2_RQSTS.MISS"] / total_ins
@@ -155,23 +155,23 @@ def parse_perf_stat(WORKSPACE_DIR):
     # metric of L2-cache
     l2_cache_misses = df['L2D_CACHE_REFILL']
     l2_cache = df['L2D_CACHE']
-    l2_cache_miss = l2_cache_misses / l2_cache
+    l2_cache_miss = l2_cache_misses.div(l2_cache, fill_value=0)  
 
     # metirc of L3-cache
     l3_cache_misses = df['LL_CACHE_MISS_RD']
     l3_cache = df['LL_CACHE_RD']
-    l3_cache_miss = l3_cache_misses / l3_cache
+    l3_cache_miss = l3_cache_misses.div(l3_cache, fill_value=0)  
 
     # metric of dTLB and iTLB
     # itlb_miss      = df["iTLB-load-misses"] / df["iTLB-loads"]
     # dtlb_miss      = df["dTLB-load-misses"] / df["dTLB-loads"]
     itlb_misses = df["L1I_TLB_REFILL"]
     itlb = df["L1I_TLB"]
-    itlb_miss = itlb_misses / itlb
+    itlb_miss = itlb_misses.div(itlb, fill_value=0)  
 
     dtlb_misses = df["L1D_TLB_REFILL"]
     dtlb = df["L1D_TLB"]
-    dtlb_miss = dtlb_misses / dtlb
+    dtlb_miss = dtlb_misses.div(dtlb, fill_value=0)  
 
     # invalid
     # metirc of sTLB(l2-tlb)
@@ -274,56 +274,55 @@ def parse_perf_stat(WORKSPACE_DIR):
 
     # # 输出l1i_cache_load_miss
     # print("l1i_cache_load_miss:\n", l1i_cache_load_miss)
-    # txt_path = os.path.join(parse_path, "l1i_cache_load_miss.txt")
-    # l1i_cache_load_miss.T.to_csv(txt_path)
+    txt_path = os.path.join(parse_path, "l1i_cache_load_miss.txt")
+    l1i_cache_load_miss.T.to_csv(txt_path)
 
-    # # 输出branch_miss数据
+    # 输出branch_miss数据
     # print("branch_miss:\n", branch_miss)
-    # txt_path = os.path.join(parse_path, "branch_miss.txt")
-    # branch_miss.T.to_csv(txt_path)
+    txt_path = os.path.join(parse_path, "branch_miss.txt")
+    branch_miss.T.to_csv(txt_path)
 
-    # # 输出icache_miss数据
-    # print("l1i_cache_load_miss:\n", l1i_cache_load_miss)
-    # txt_path = os.path.join(parse_path, "l1i_cache_load_miss.txt")
-    # l1i_cache_load_miss.T.to_csv(txt_path)
+    # # 输出l1d_cache_miss数据
+    # print("l1d_cache_miss:\n", l1d_cache_miss)
+    txt_path = os.path.join(parse_path, "l1d_cache_miss.txt")
+    l1d_cache_miss.T.to_csv(txt_path)
 
     # # 输出itlb_miss数据
     # print("iTLB Rate:\n", itlb_miss)
     # txt_path = os.path.join(parse_path, "itlb_miss.txt")
     # itlb_miss.T.to_csv(txt_path)
    
-    # # 输出dcache_miss数据
-    # print("l1d_cache_miss:\n", l1d_cache_miss)
-    # txt_path = os.path.join(parse_path, "l1d_cache_miss.txt")
-    # l1d_cache_miss.T.to_csv(txt_path)
-
     # print("l3_cache_miss:\n", l3_cache_miss)
     # txt_path = os.path.join(parse_path, "l3_cache_miss.txt")
     # l3_cache_miss.T.to_csv(txt_path)
 
+    # print("br:\n", br)
+    txt_path = os.path.join(parse_path, "br.txt")
+    br.T.to_csv(txt_path)
+
     # print("load:\n", load)
-    # txt_path = os.path.join(parse_path, "load.txt")
-    # load.T.to_csv(txt_path)
+    txt_path = os.path.join(parse_path, "load.txt")
+    load.T.to_csv(txt_path)
 
     # print("store:\n", store)
-    # txt_path = os.path.join(parse_path, "store.txt")
-    # store.T.to_csv(txt_path)
+    txt_path = os.path.join(parse_path, "store.txt")
+    store.T.to_csv(txt_path)
 
     # print("vector:\n", vector)
-    # txt_path = os.path.join(parse_path, "vector.txt")
-    # vector.T.to_csv(txt_path)
+    txt_path = os.path.join(parse_path, "vector.txt")
+    vector.T.to_csv(txt_path)
 
     # print("fp:\n", fp)
-    # txt_path = os.path.join(parse_path, "fp.txt")
-    # fp.T.to_csv(txt_path)
+    txt_path = os.path.join(parse_path, "fp.txt")
+    fp.T.to_csv(txt_path)
 
     # print("int:\n", int)
-    # txt_path = os.path.join(parse_path, "int.txt")
-    # int.T.to_csv(txt_path)
+    txt_path = os.path.join(parse_path, "int.txt")
+    int.T.to_csv(txt_path)
 
     # print("cpi:\n", cpi)
-    # txt_path = os.path.join(parse_path, "cpi.txt")
-    # cpi.T.to_csv(txt_path)
+    txt_path = os.path.join(parse_path, "cpi.txt")
+    cpi.T.to_csv(txt_path)
 
     csv_path = os.path.join(parse_path, "perf-post.csv")
     csv_path2 = os.path.join(parse_path,"T.csv")

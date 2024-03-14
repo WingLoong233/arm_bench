@@ -1,0 +1,138 @@
+store/load:				load
+两次访问之间的间距 stride:		0
+连续访问次数access_number_per_inner:	1
+make: Entering directory '/home/ubuntu/arm_bench/src/test_load_store2/generate'
+gcc -o load_0_1 load_0_1.S
+chmod +x load_0_1
+mv load_0_1 ../build/load_0_1
+make: Leaving directory '/home/ubuntu/arm_bench/src/test_load_store2/generate'
++ set +x
+execution time : 7 s
+store/load:				load
+两次访问之间的间距 stride:		1
+连续访问次数access_number_per_inner:	1
+make: Entering directory '/home/ubuntu/arm_bench/src/test_load_store2/generate'
+gcc -o load_1_1 load_1_1.S
+chmod +x load_1_1
+mv load_1_1 ../build/load_1_1
+make: Leaving directory '/home/ubuntu/arm_bench/src/test_load_store2/generate'
++ set +x
+execution time : 7 s
+store/load:				load
+两次访问之间的间距 stride:		2
+连续访问次数access_number_per_inner:	1
+make: Entering directory '/home/ubuntu/arm_bench/src/test_load_store2/generate'
+gcc -o load_2_1 load_2_1.S
+chmod +x load_2_1
+mv load_2_1 ../build/load_2_1
+make: Leaving directory '/home/ubuntu/arm_bench/src/test_load_store2/generate'
++ set +x
+execution time : 7 s
+store/load:				load
+两次访问之间的间距 stride:		3
+连续访问次数access_number_per_inner:	1
+make: Entering directory '/home/ubuntu/arm_bench/src/test_load_store2/generate'
+gcc -o load_3_1 load_3_1.S
+chmod +x load_3_1
+mv load_3_1 ../build/load_3_1
+make: Leaving directory '/home/ubuntu/arm_bench/src/test_load_store2/generate'
++ set +x
+execution time : 7 s
+store/load:				load
+两次访问之间的间距 stride:		4
+连续访问次数access_number_per_inner:	1
+make: Entering directory '/home/ubuntu/arm_bench/src/test_load_store2/generate'
+gcc -o load_4_1 load_4_1.S
+chmod +x load_4_1
+mv load_4_1 ../build/load_4_1
+make: Leaving directory '/home/ubuntu/arm_bench/src/test_load_store2/generate'
++ set +x
+execution time : 7 s
+store/load:				load
+两次访问之间的间距 stride:		5
+连续访问次数access_number_per_inner:	1
+make: Entering directory '/home/ubuntu/arm_bench/src/test_load_store2/generate'
+gcc -o load_5_1 load_5_1.S
+chmod +x load_5_1
+mv load_5_1 ../build/load_5_1
+make: Leaving directory '/home/ubuntu/arm_bench/src/test_load_store2/generate'
++ set +x
+execution time : 7 s
+store/load:				load
+两次访问之间的间距 stride:		6
+连续访问次数access_number_per_inner:	1
+make: Entering directory '/home/ubuntu/arm_bench/src/test_load_store2/generate'
+gcc -o load_6_1 load_6_1.S
+chmod +x load_6_1
+mv load_6_1 ../build/load_6_1
+make: Leaving directory '/home/ubuntu/arm_bench/src/test_load_store2/generate'
++ set +x
+execution time : 7 s
+store/load:				load
+两次访问之间的间距 stride:		7
+连续访问次数access_number_per_inner:	1
+make: Entering directory '/home/ubuntu/arm_bench/src/test_load_store2/generate'
+gcc -o load_7_1 load_7_1.S
+chmod +x load_7_1
+mv load_7_1 ../build/load_7_1
+make: Leaving directory '/home/ubuntu/arm_bench/src/test_load_store2/generate'
++ set +x
+execution time : 7 s
+store/load:				load
+两次访问之间的间距 stride:		8
+连续访问次数access_number_per_inner:	1
+make: Entering directory '/home/ubuntu/arm_bench/src/test_load_store2/generate'
+gcc -o load_8_1 load_8_1.S
+chmod +x load_8_1
+mv load_8_1 ../build/load_8_1
+make: Leaving directory '/home/ubuntu/arm_bench/src/test_load_store2/generate'
++ set +x
+execution time : 7 s
+store/load:				load
+两次访问之间的间距 stride:		9
+连续访问次数access_number_per_inner:	1
+make: Entering directory '/home/ubuntu/arm_bench/src/test_load_store2/generate'
+gcc -o load_9_1 load_9_1.S
+chmod +x load_9_1
+mv load_9_1 ../build/load_9_1
+make: Leaving directory '/home/ubuntu/arm_bench/src/test_load_store2/generate'
++ set +x
+execution time : 7 s
+store/load:				load
+两次访问之间的间距 stride:		10
+连续访问次数access_number_per_inner:	1
+make: Entering directory '/home/ubuntu/arm_bench/src/test_load_store2/generate'
+gcc -o load_10_1 load_10_1.S
+chmod +x load_10_1
+mv load_10_1 ../build/load_10_1
+make: Leaving directory '/home/ubuntu/arm_bench/src/test_load_store2/generate'
++ set +x
+execution time : 7 s
+store/load:				load
+两次访问之间的间距 stride:		11
+连续访问次数access_number_per_inner:	1
+make: Entering directory '/home/ubuntu/arm_bench/src/test_load_store2/generate'
+gcc -o load_11_1 load_11_1.S
+chmod +x load_11_1
+mv load_11_1 ../build/load_11_1
+make: Leaving directory '/home/ubuntu/arm_bench/src/test_load_store2/generate'
++ set +x
+execution time : 7 s
+store/load:				load
+两次访问之间的间距 stride:		12
+连续访问次数access_number_per_inner:	1
+make: Entering directory '/home/ubuntu/arm_bench/src/test_load_store2/generate'
+gcc -o load_12_1 load_12_1.S
+chmod +x load_12_1
+mv load_12_1 ../build/load_12_1
+make: Leaving directory '/home/ubuntu/arm_bench/src/test_load_store2/generate'
++ set +x
+execution time : 7 s
+store/load:				load
+两次访问之间的间距 stride:		13
+连续访问次数access_number_per_inner:	1
+make: Entering directory '/home/ubuntu/arm_bench/src/test_load_store2/generate'
+gcc -o load_13_1 load_13_1.S
+chmod +x load_13_1
+mv load_13_1 ../build/load_13_1
+make: Leaving directory '/home/ubuntu/arm_bench/src/test_load_store2/generate'

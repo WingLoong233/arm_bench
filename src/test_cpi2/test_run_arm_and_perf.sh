@@ -11,20 +11,25 @@ source ${root_dir}/../lib/perf.sh
 # "add_r32_r32" "subl_r32_r32" \
 # "mul_r8" "imul_r8" "mul_r16" "imul_r16" "mul_r32" "imul_r32")
 
+# declare -a bench_name_arr=( \
+# "add_r32_r32" "ILP4_add_0_r32" "sub_r32_r32" \
+# "mul_r32" "smull_r32" "mul_r64" "smulh_r64" \
+# "float_add" "vector_add" "div_r64" "syscall" "nop" "mov"\
+# )
+
 declare -a bench_name_arr=( \
-"add_r32_r32" "ILP4_add_0_r32" "sub_r32_r32" \
-"mul_r32" "smull_r32" "mul_r64" "smulh_r64" \
-"float_add" "vector_add" "div_r64" "mov"\
+"add_r32_r32" "float_add" "float_add_1" "float_add_2" \
+"vector_add" "syscall" "nop" "mov" \
 )
 
-# declare -a bench_name_arr=("mov")
+# declare -a bench_name_arr=("float_add")
 
 for bench_name in ${bench_name_arr[@]}
 do
     export bench_name
     export bias_flag=False
     cd ${root_dir}
-    rm -f generate/*.S
+    # rm -f generate/*.S
     python3 generate/generate.py
     make -C generate
     log_dir=$root_dir/results/${bench_name}
@@ -37,5 +42,6 @@ do
     perf_cmd ${repeats} ${log_dir} -1 ${cmd_line}
     end_time=$(date +%s)
     execution_time=$((end_time - start_time))
+    echo "execution time : $execution_time s"
 done
 python3 ${root_dir}/parse_perf_stat_westmere.py

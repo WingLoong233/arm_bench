@@ -74,12 +74,23 @@ def declare_var(name='array', size=16777216, index=0, align=3):
 
     s += f"\t.text\n"
     s += f"\t.global\t{name}{index}\n"
-    s += f"\t.bss\n"
+    s += f"\t.data\n"
     s += f"\t.align\t{align}\n"
     s += f"\t.type\t{name}{index}, %object\n"
     s += f"\t.size\t{name}{index}, {size}\n"
     s += f"{name}{index}:\n"
-    s += f"\t.zero\t{size}\n"
+    s += f"\t.word\t{1}\n"
+    s += f"\t.zero\t{size-4}\n"
+
+    # s += f"\t.text\n"
+    # s += f"\t.global\t{name}{index}\n"
+    # s += f"\t.bss\n"
+    # s += f"\t.align\t{align}\n"
+    # s += f"\t.type\t{name}{index}, %object\n"
+    # s += f"\t.size\t{name}{index}, {size}\n"
+    # s += f"{name}{index}:\n"
+    # s += f"\t.zero\t{size}\n"
+
 
     # for number in initial_list:
     #     s += "\t.long\t" + str(number) + "\n"
@@ -392,6 +403,7 @@ def access_func2_buffer(index, inner_number, outer_number, stride, change_flag):
     s += f"\tbgt .L{index}\n"
     return s
 
+
 def access_func2(index, inner_number, outer_number, stride, change_flag): 
     s = ""
     if (change_flag == False):
@@ -412,16 +424,64 @@ def access_func2(index, inner_number, outer_number, stride, change_flag):
         s += "\tcmp\tx13, #0\n"
         s += f"\tbgt .L{index}_STR\n"
     else:
-        # 异态模式
         s += load_number_to_reg(outer_number, "x13")
-        s += f"\tadr x11, .L{index}_M\n"
-        s += f".L{index}:\n"
-        s += f"\tb icachefunc{index}\n"
-        s += f".L{index}_M:\n"
+        s += load_number_to_reg(stride*4*5*inner_number, "x12")
+        s += load_number_to_reg(stride*4*5, "x3")
+        # s += f"\tadr x11, .L{index}_RET\n"
+        s += f".L{index}_STR:\n"
+        s += f"\tbl func12\n"
+        # s += f".L{index}_RET:\n"
         s += "\tsub\tx13, x13, #1\n"
         s += "\tcmp\tx13, #0\n"
-        s += f"\tbgt .L{index}\n"
+        s += f"\tbgt .L{index}_STR\n"
+
+        # # 旧的异态模式
+        # s += load_number_to_reg(outer_number, "x13")
+        # s += f"\tadr x11, .L{index}_M\n"
+        # s += f".L{index}:\n"
+        # s += f"\tb icachefunc{index}\n"
+        # s += f".L{index}_M:\n"
+        # s += "\tsub\tx13, x13, #1\n"
+        # s += "\tcmp\tx13, #0\n"
+        # s += f"\tbgt .L{index}\n"
+
+        # # 新的异态模式
+        # s += load_number_to_reg(outer_number, "x13")
+        # s += load_number_to_reg(stride*4*inner_number, "x12")
+        # s += load_number_to_reg(stride*4, "x3")
+        # s += f"\tadr x11, .L{index}_M\n"
+        # s += f".L{index}_STR:\n"
+        # s += f"\tb func11\n"
+        # s += f".L{index}_M:\n"
+        # s += f"\tadd x0, x0, x3\n"
+        # # s += f"\tmov x0, x0\n"
+        # # s += f"\tmov x0, x0\n"
+        # # s += f"\tmov x0, x0\n"
+        # # s += f"\tmov x0, x0\n"
+        # # s += f"\tmov x0, x0\n"
+        # # s += f"\tmov x0, x0\n"
+        # # s += f"\tmov x0, x0\n"
+        # # s += f"\tmov x0, x0\n"
+        # # s += f"\tmov x0, x0\n"
+        # # s += f"\tmov x0, x0\n"
+        # s += f"\tnop\n"
+        # s += f"\tnop\n"
+        # s += f"\tnop\n"
+        # s += f"\tnop\n"
+        # s += f"\tnop\n"
+        # s += f"\tnop\n"
+        # s += f"\tnop\n"
+        # s += f"\tnop\n"
+        # s += "\tcmp x0, x2\n"
+        # s += f"\tbgt .L{index}_C\n"
+        # s += "\tbr x0\n"
+        # s += f".L{index}_C:\n"
+        # s += "\tsub\tx13, x13, #1\n"
+        # s += "\tcmp\tx13, #0\n"
+        # s += f"\tbgt .L{index}_STR\n"
+
     return s
+
 
 def generate_icache_funcs(index, inner_number, stride, change_flag):
     s = ""
@@ -435,11 +495,14 @@ def generate_icache_funcs(index, inner_number, stride, change_flag):
             if i > stride*(inner_number-1):
                 s += f"\tbr x11\n"
             else:
+                # for _ in range(10):
+                #     s += f"\tmov\tx3, x3\n"
+
                 s += f"\tb .ICACHE{index}_{i+stride}\n"
         s += "\tret\n"
         s += f"\t.size icachefunc{index}, .-icachefunc{index}\n"
+    s = ""
     return s
-
 
 def generate_icache_func11(func_number):
     s = ""
@@ -457,6 +520,35 @@ def generate_icache_func11(func_number):
         s += "\tbr x11\n"
     s += f"ret\n"
     return s
+
+
+def generate_icache_func12(func_number):
+    s = ""
+    s += "\t.text\n"
+    s += "\t.align\t2\n"
+    s += "\t.global\tfunc12\n"
+    s += "\t.type\tfunc12, %function\n"
+    s += "func12:\n"
+    s += f"\tadr\tx0, .FUNC12_ST\n"
+    s += f"\tadd\tx2, x0, x12\n"
+    # s += f"\tb\t.FUNC12_ST\n"
+    # s += f".FUNC12_RET:\n"
+    # s += f"\tbr\tx11\n"
+    # s += f"\tret\n"
+    s += f".FUNC12_ST:\n"
+    for i in range(func_number):
+        s += f"\tadd\tx0, x0, x3\n"
+        s += f"\tcmp\tx0, x2\n"
+        s += f"\tbgt\t.FUNC12_{i}\n"
+        s += f"\tbr\tx0\n"
+        s += f".FUNC12_{i}:\n"
+        s += f"\tret\n"
+    for _ in range(300):
+        # s += f"\tbr\tx11\n"
+        s += f"\tret\n"
+    s += f"ret\n"
+    return s
+
 
 def generate_icache_func_c(index, func_number):
     s = ""
@@ -577,54 +669,68 @@ def generate_jmp_block_old(index, threshold, max_value, outer_number, func_name=
 
 
 # threshold0其实是icache的thride0，因为icache的outnumber=300，太小了，所以移到这里（废除，转到cpi2中）
+# threshold0其实是为了增加br指令比例设计的
 def generate_jmp_block(index, threshold, max_value, outer_number, func_name="func1", return_reg="x30"):
     s = ""
-    inner_number = 8
-    inner_num_ins = 32
-    s += load_number_to_reg(outer_number, "x13")
-    s += load_number_to_reg(inner_number, "x12")
-    # s += "\tldr x3, =0x5DEECE66D\n"
-    s += load_number_to_reg(25214903917, "x3")
-    s += f".L{index}_S:\n"
-    s += "\tmov x0, #0\n"
-    s += "\tmov x2, #0\n"
-    for i in range(inner_num_ins):
-        s += f".L{index}_{i}:\n"
-        s += "\tmul x0, x0, x3\n"
-        s += "\tadd x0, x0, #0xB\n"
-        s += "\tand x0, x0, #0xFFFFFFFFFFFF\n"
-        s += f"\tand x1, x0, #{max_value-1}\n"
-        s += f"\tcmp x1, #{threshold}\n"
-        if (i+2 < inner_num_ins):
-            s += f"\tblt .L{index}_{i+2}\n"
-        else:
-            s += f"\tblt .L{index}_C\n"
-    # s += f"\tb .L{index}_16\n"
-    s += f".L{index}_C:\n"
-    s += "\tadd x2, x2, #1\n"
-    s += "\tcmp x2, x12\n"
-    s += f"\tblt .L{index}_0\n"
-    s += "\tsub x13, x13, #1\n"
-    s += "\tcmp x13, #0\n"
-    s += f"\tbgt .L{index}_S\n"
-    # s += "\tmov x13, #0\n"
+    if(threshold != 0):
+        inner_number = 8
+        inner_num_ins = 32
+        s += load_number_to_reg(outer_number, "x13")
+        s += load_number_to_reg(inner_number, "x12")
+        # s += "\tldr x3, =0x5DEECE66D\n"
+        s += load_number_to_reg(25214903917, "x3")
+        s += f".L{index}_S:\n"
+        s += "\tmov x0, #0\n"
+        s += "\tmov x2, #0\n"
+        for i in range(inner_num_ins):
+            s += f".L{index}_{i}:\n"
+            s += "\tmul x0, x0, x3\n"
+            s += "\tadd x0, x0, #0xB\n"
+            s += "\tand x0, x0, #0xFFFFFFFFFFFF\n"
+            s += f"\tand x1, x0, #{max_value-1}\n"
+            s += f"\tcmp x1, #{threshold}\n"
+            if (i+2 < inner_num_ins):
+                s += f"\tblt .L{index}_{i+2}\n"
+            else:
+                s += f"\tblt .L{index}_C\n"
+        # s += f"\tb .L{index}_16\n"
+        s += f".L{index}_C:\n"
+        s += "\tadd x2, x2, #1\n"
+        s += "\tcmp x2, x12\n"
+        s += f"\tblt .L{index}_0\n"
+        s += "\tsub x13, x13, #1\n"
+        s += "\tcmp x13, #0\n"
+        s += f"\tbgt .L{index}_S\n"
+        # s += "\tmov x13, #0\n"
 
-    # else:
-    #     s += load_number_to_reg(outer_number, "x13")
-    #     s += f".L{index}:\n"
-    #     s += load_number_to_reg(32, "x12")
-    #     s += f".L{index}IN:\n"
-    #     s += f"\tbl {func_name}\n"
-    #     s += "\tnop\n"
-    #     s += "\tsub\tx12, x12, #1\n"
-    #     s += "\tcmp\tx12, #0\n"
-    #     s += f"\tbgt .L{index}IN\n"
-    #     s += "\tsub\tx13, x13, #1\n"
-    #     s += "\tcmp\tx13, #0\n"
-    #     s += f"\tbgt .L{index}\n"
+    # here change
+    else:
+        inner_number = 20
+        inner_num_ins = 50
+        
+        s += load_number_to_reg(outer_number, "x13")
+        s += load_number_to_reg(inner_number, "x12")
+        s += "\tb .L" + str(index) + "_OB\n"
+        s += f".L{index}_IB:\n"
+        s += "\tmov\tx1, #10\n"
+        s += "\tmov\tx2, #9\n"
+        s += "\tcmp\tx1, x2\n"
+
+        for i in range(inner_num_ins):
+            s += f"\tblt .L{index}_IB\n"
+        
+        s += "\tadd\tx11, x11, #1\n"
+        s += "\tcmp\tx11, x12\n"
+        s += f"\tblt .L{index}_IB\n"
+        s += "\tsub\tx13, x13, #1\n"
+        s += "\tcmp\tx13, #0\n"
+        s += f"\tbeq .L{index}_OE\n"
+        s += f".L{index}_OB:\n"
+        s += "\tmov\tx11, 0\n"
+        s += f"\tb .L{index}_IB\n"
+        s += f".L{index}_OE:\n"
 
     return s
-
 
 
 def file_block(index,outer_number, inner_number, stride, is_read=True):

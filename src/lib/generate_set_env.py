@@ -12,11 +12,11 @@ def main():
     target = args.target
     directory = args.directory
 
-    # df_list = [pd.read_csv(cur_dir+"/test_cases/sysbench.csv", index_col=0),
-    #         # pd.read_csv(cur_dir+"/test_cases/rocksdb.csv", index_col=0),
-    #         pd.read_csv(cur_dir+"/test_cases/mysqlslap.csv", index_col=0)]
+    df_list = [pd.read_csv(cur_dir+"/test_cases/sysbench.csv", index_col=0),
+            pd.read_csv(cur_dir+"/test_cases/rocksdb.csv", index_col=0),
+            pd.read_csv(cur_dir+"/test_cases/mysqlslap.csv", index_col=0)]
 
-    df_list = [pd.read_csv(cur_dir+"/test_cases/rocksdb.csv", index_col=0)]
+    # df_list = [pd.read_csv(cur_dir+"/test_cases/rocksdb.csv", index_col=0)]
 
     df = None
     for df1 in df_list:
@@ -42,3 +42,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+

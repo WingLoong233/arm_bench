@@ -8,10 +8,12 @@ function perf_cmd(){
     if [ ! -d ${log_dir} ]; then
         mkdir -p ${log_dir}
     fi
+    echo "~~~~~~"
+    echo ${process_id}
     if [ ${process_id} -eq -1 ];then
         set -x
         (time perf stat -r ${repeats} \
-            -e 'r8,r11,r22,r21' \
+            -e 'r8,r11,r10,r12' \
             -e 'r3,r4,r1,r14' \
             -e 'r17,r16,r37,r36' \
             -e 'r5,r25,r2,r26,r2D,r2F' \
@@ -34,7 +36,7 @@ function perf_cmd(){
 		# -e 'r2D,r2F' \
 		# -e 'r70,r71,r73,r75,r74' \
         (time perf stat -r ${repeats} \
-            -e 'r8,r11,r22,r21' \
+            -e 'r8,r11,r10,r12' \
             -e 'r3,r4,r1,r14' \
             -e 'r17,r16,r37,r36' \
             -e 'r5,r25,r2,r26,r2D,r2F' \
@@ -63,7 +65,7 @@ function perf_cmd2(){
     cmd_line=$4
 
     declare -a events=( \
-        "r8,r11,r22,r21" \
+        "r8,r11,r10,r12" \
         "r3,r4,r1,r14" \
         "r17,r16,r37,r36,r2F" \
         "r5,r25,r2,r26,r2D" \

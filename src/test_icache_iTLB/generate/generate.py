@@ -9,7 +9,28 @@ sys.path.append(cur_dir+"/../../lib")
 
 import gen_tool
 
+def generate_func11():
+    s = ''
+    s += gen_tool.generate_icache_func11(6000000)
+    with open(f'{cur_dir}/func11.S', 'w', encoding='utf-8') as f:
+        f.write(s)
+    os.system(f"gcc -o {cur_dir}/func11.o -c {cur_dir}/func11.S")
+
+def generate_func12():
+    s = ''
+    s += gen_tool.generate_icache_func12(600000)
+    with open(f'{cur_dir}/func12.S', 'w', encoding='utf-8') as f:
+        f.write(s)
+    os.system(f"gcc -o {cur_dir}/func12.o -c {cur_dir}/func12.S")
+
 if __name__ == "__main__":
+
+    if not os.path.exists(f'{cur_dir}/func11.o'):  
+        generate_func11()
+
+    if not os.path.exists(f'{cur_dir}/func12.o'):  
+        generate_func12()
+
     bench_name = os.getenv('bench_name')
     bias_flag = os.getenv("bias_flag")
 
@@ -65,4 +86,5 @@ if __name__ == "__main__":
 
     with open(cur_dir + '/' + bench_name + '.S', 'w', encoding='utf-8') as f:
         f.write(s)
+
 
