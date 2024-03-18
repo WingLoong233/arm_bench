@@ -1,7 +1,7 @@
 testsuite_dir=`pwd`
 
-# for dir in "mysqlslap" "sysbench" "rocksdb"
-for dir in "rocksdb"
+for dir in "mysqlslap" "sysbench" "rocksdb"
+# for dir in "rocksdb"
 do
     cd ${testsuite_dir}/${dir}
     python3 parse_perf_stat_testsuite.py

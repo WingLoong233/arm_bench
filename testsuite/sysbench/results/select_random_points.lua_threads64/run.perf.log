@@ -1,0 +1,90 @@
+sysbench 1.1.0 (using bundled LuaJIT 2.1.0-beta3)
+
+Running the test with following options:
+Number of threads: 64
+Warmup time: 10s
+Report intermediate results every 20 second(s)
+Initializing random number generator from current time
+
+
+Initializing worker threads...
+
+Threads started!
+
+Warming up for 10 seconds...
+
+[ 20s ] thds: 64 tps: 27533.05 qps: 27533.05 (r/w/o: 27533.05/0.00/0.00) lat (ms,95%): 2.86 err/s: 0.00 reconn/s: 0.00
+[ 40s ] thds: 64 tps: 28131.69 qps: 28131.69 (r/w/o: 28131.69/0.00/0.00) lat (ms,95%): 2.81 err/s: 0.00 reconn/s: 0.00
+[ 60s ] thds: 64 tps: 28109.02 qps: 28109.02 (r/w/o: 28109.02/0.00/0.00) lat (ms,95%): 2.81 err/s: 0.00 reconn/s: 0.00
+SQL statistics:
+    queries performed:
+        read:                            1684818
+        write:                           0
+        other:                           0
+        total:                           1684818
+    transactions:                        1684818 (28075.17 per sec.)
+    queries:                             1684818 (28075.17 per sec.)
+    ignored errors:                      0      (0.00 per sec.)
+    reconnects:                          0      (0.00 per sec.)
+
+Throughput:
+    events/s (eps):                      28075.1688
+    time elapsed:                        60.0111s
+    total number of events:              1684818
+
+Latency (ms):
+         min:                                    0.40
+         avg:                                    2.28
+         max:                                   49.33
+         95th percentile:                        2.81
+         sum:                              3835367.99
+
+Threads fairness:
+    events (avg/stddev):           26324.3750/258.37
+    execution time (avg/stddev):   59.9276/0.00
+
+sysbench 1.1.0 (using bundled LuaJIT 2.1.0-beta3)
+
+Running the test with following options:
+Number of threads: 64
+Warmup time: 10s
+Report intermediate results every 20 second(s)
+Initializing random number generator from current time
+
+
+Initializing worker threads...
+
+Threads started!
+
+Warming up for 10 seconds...
+
+[ 20s ] thds: 64 tps: 28801.50 qps: 28801.50 (r/w/o: 28801.50/0.00/0.00) lat (ms,95%): 2.76 err/s: 0.00 reconn/s: 0.00
+[ 40s ] thds: 64 tps: 28954.19 qps: 28954.19 (r/w/o: 28954.19/0.00/0.00) lat (ms,95%): 2.76 err/s: 0.00 reconn/s: 0.00
+[ 60s ] thds: 64 tps: 28944.67 qps: 28944.67 (r/w/o: 28944.67/0.00/0.00) lat (ms,95%): 2.71 err/s: 0.00 reconn/s: 0.00
+SQL statistics:
+    queries performed:
+        read:                            1737265
+        write:                           0
+        other:                           0
+        total:                           1737265
+    transactions:                        1737265 (28949.21 per sec.)
+    queries:                             1737265 (28949.21 per sec.)
+    ignored errors:                      0      (0.00 per sec.)
+    reconnects:                          0      (0.00 per sec.)
+
+Throughput:
+    events/s (eps):                      28949.2063
+    time elapsed:                        60.0109s
+    total number of events:              1737265
+
+Latency (ms):
+         min:                                    0.38
+         avg:                                    2.21
+         max:                                   37.15
+         95th percentile:                        2.76
+         sum:                              3835383.55
+
+Threads fairness:
+    events (avg/stddev):           27143.7656/486.61
+    execution time (avg/stddev):   59.9279/0.00
+

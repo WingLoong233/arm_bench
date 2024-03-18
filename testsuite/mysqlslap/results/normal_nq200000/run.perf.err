@@ -1,0 +1,6 @@
+++ perf stat -r 1 -e r8,r11,r10,r12 -e r3,r4,r1,r14 -e r17,r16,r37,r36 -e r5,r25,r2,r26,r2D,r2F -e r70,r71,r73,r75,r74 -o /home/ubuntu/testsuite/mysql/mysql_log/2024-03-15-08:17/mysqlslap/normal_nq200000/perf.out -p 89220 ./mysqlslap --no-defaults --create-schema=mysql_parti --host=127.0.0.1 --user=test --password=123 --port=30009 --concurrency=100 --engine=innodb --iterations=1 --number-of-queries=200000 '--query=call insert_into_normal();'
+mysqlslap: [Warning] Using a password on the command line interface can be insecure.
+
+real	18m51.232s
+user	0m4.041s
+sys	0m8.883s

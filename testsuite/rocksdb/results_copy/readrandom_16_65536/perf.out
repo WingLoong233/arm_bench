@@ -1,0 +1,31 @@
+# started on Fri Mar  8 19:30:14 2024
+
+
+ Performance counter stats for process id '127646':
+
+     5345111381021      INST_RETIRED                                                                      (26.08%)
+     4263224349350      CPU_CYCLES                                                                     (30.43%)
+        6134637441      BR_MIS_PRED_RETIRED                                                                     (30.43%)
+      382004760126      BR_RETIRED                                                                     (30.44%)
+       26622645113      L1D_CACHE_REFILL                                                                      (30.44%)
+     1898581420053      L1D_CACHE                                                                      (30.44%)
+       14258275135      L1I_CACHE_REFILL                                                                      (30.45%)
+     1594875745120      L1I_CACHE                                                                     (30.45%)
+       25284345267      L2D_CACHE_REFILL                                                                     (26.10%)
+      160450688694      L2D_CACHE                                                                     (26.10%)
+                 0      LL_CACHE_MISS_RD                                                                     (26.10%)
+                 0      LL_CACHE_RD                                                                     (26.09%)
+        3305663988      L1D_TLB_REFILL                                                                      (26.09%)
+                 0      L1D_TLB                                                                     (26.09%)
+        2511439155      L1I_TLB_REFILL                                                                      (26.09%)
+                 0      L1I_TLB                                                                     (26.08%)
+                 0      L2TLB_REFILL                                                                     (26.08%)
+                 0      L2TLB_REQ                                                                     (26.08%)
+     1214811965694      LD_SPEC                                                                     (26.08%)
+      631859667429      ST_SPEC                                                                     (26.08%)
+     3227262315183      DP_SPEC                                                                     (26.08%)
+          25380745      VFP_SPEC                                                                     (26.08%)
+        1803309411      ASE_SPEC                                                                     (26.08%)
+
+     600.001325952 seconds time elapsed
+

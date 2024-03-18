@@ -1,31 +1,31 @@
-# started on Fri Mar  8 19:00:03 2024
+# started on Sun Mar 17 13:55:18 2024
 
 
- Performance counter stats for process id '127196':
+ Performance counter stats for process id '214744':
 
-      481076415494      INST_RETIRED                                                                      (26.09%)
-      268489841252      CPU_CYCLES                                                                     (30.44%)
-         483643117      BR_MIS_PRED_RETIRED                                                                     (30.45%)
-       34378247454      BR_RETIRED                                                                     (30.45%)
-        2347706213      L1D_CACHE_REFILL                                                                      (30.45%)
-      170612923739      L1D_CACHE                                                                      (30.45%)
-        1222466766      L1I_CACHE_REFILL                                                                      (30.45%)
-      142255613644      L1I_CACHE                                                                     (30.45%)
-        1958301009      L2D_CACHE_REFILL                                                                     (26.09%)
-       13988300201      L2D_CACHE                                                                     (26.08%)
-                 0      LL_CACHE_MISS_RD                                                                     (26.08%)
-                 0      LL_CACHE_RD                                                                     (26.08%)
-         276967715      L1D_TLB_REFILL                                                                      (26.08%)
-                 0      L1D_TLB                                                                     (26.08%)
-         219217395      L1I_TLB_REFILL                                                                      (26.08%)
-                 0      L1I_TLB                                                                     (26.08%)
-                 0      L2TLB_REFILL                                                                     (26.08%)
-                 0      L2TLB_REQ                                                                     (26.08%)
-      108860928661      LD_SPEC                                                                     (26.08%)
-       56671164725      ST_SPEC                                                                     (26.08%)
-      289610841711      DP_SPEC                                                                     (26.08%)
-           2238963      VFP_SPEC                                                                     (26.08%)
-         159125474      ASE_SPEC                                                                     (26.08%)
+      501173419107      INST_RETIRED                                                            (26.07%)
+      468348268429      CPU_CYCLES                                                           (30.42%)
+         487473109      BR_MIS_PRED_RETIRED                                                           (30.42%)
+       47117544172      BR_RETIRED                                                           (30.43%)
+        2187550105      L1D_CACHE_REFILL                                                            (30.43%)
+      179378901052      L1D_CACHE                                                            (30.44%)
+        1092149375      L1I_CACHE_REFILL                                                            (30.45%)
+      153998754924      L1I_CACHE                                                           (30.45%)
+        1888328768      L2D_CACHE_REFILL                                                           (26.10%)
+       13050951543      L2D_CACHE                                                           (26.10%)
+                 0      LL_CACHE_MISS_RD                                                           (26.10%)
+                 0      LL_CACHE_RD                                                           (26.10%)
+         281318267      L1D_TLB_REFILL                                                            (26.10%)
+                 0      L1D_TLB                                                           (26.10%)
+         210624989      L1I_TLB_REFILL                                                            (26.09%)
+                 0      L1I_TLB                                                           (26.09%)
+                 0      L2TLB_REFILL                                                           (26.09%)
+                 0      L2TLB_REQ                                                           (26.08%)
+      109730600617      LD_SPEC                                                           (26.08%)
+       63960895397      ST_SPEC                                                           (26.08%)
+      290737677601      DP_SPEC                                                           (26.07%)
+           2166979      VFP_SPEC                                                           (26.07%)
+          49055605      ASE_SPEC                                                           (26.07%)
 
-     600.004013168 seconds time elapsed
+     600.004003836 seconds time elapsed
 
