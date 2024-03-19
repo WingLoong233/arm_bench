@@ -25,7 +25,10 @@
 
 /test/*
 
-/testsuite_origin/
+# /testsuite/*/results/*/perf.out
+
+nohup.out
+align.log
 
 
 

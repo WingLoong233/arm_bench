@@ -1,0 +1,5 @@
++ perf stat -r 3 -e r8,r11,r10,r12 -e r3,r4,r1,r14 -e r17,r16,r37,r36 -e r5,r25,r2,r26,r2D,r2F -e r70,r71,r73,r75,r74 -o /home/ubuntu/arm_bench/src/test_branch_miss/results/threshold27/perf.out /home/ubuntu/arm_bench/src/test_branch_miss/build/threshold27
+
+real	0m2.287s
+user	0m2.274s
+sys	0m0.014s

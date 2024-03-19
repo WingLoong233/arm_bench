@@ -891,8 +891,8 @@ if __name__ == "__main__":
         "br": target_br if target_br >= 1e-4 else None,
         "cpi": target_cpi if target_cpi >= 1e-4 else None,
         "int": target_int if target_int >= 1e-4 else None,
-        "fp": target_fp if target_fp >= 1e-4 else None,
-        "vector": target_vector if target_vector >= 1e-4 else None,
+        "fp": target_fp if target_fp >= 5e-3 else None,
+        "vector": target_vector if target_vector >= 5e-3 else None,
     }
 
     target_miss_rate_dic = {k: v for k, v in target_miss_rate_dic.items() if v is not None}
@@ -901,7 +901,7 @@ if __name__ == "__main__":
     # df = pd.DataFrame.from_dict(target_miss_rate_dic, orient='index')
     # print(df)
     # epochs = 10
-    epochs = 5
+    epochs = 3
     # num_ins = 500000000
     num_ins = 1000000000
     align(target_miss_rate_dic, gen_list, epochs, num_ins)

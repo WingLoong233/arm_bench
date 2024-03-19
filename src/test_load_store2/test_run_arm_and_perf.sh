@@ -41,14 +41,14 @@ do
                 # fi
             fi
 
-            # 性能较好
-            if [ $i -lt 64 ];then
-                let "i=i+1"
-            # elif [ $i -lt 1024 ];then
-            #     let "i=i+128"
-            else
-                let "i=i*2"
-            fi
+            # # 性能较好
+            # if [ $i -lt 64 ];then
+            #     let "i=i+1"
+            # # elif [ $i -lt 1024 ];then
+            # #     let "i=i+128"
+            # else
+            #     let "i=i*2"
+            # fi
 
             # if [ $i -lt 16 ];then
             #     let "i=i+1"
@@ -71,11 +71,11 @@ do
             #     let "i=i*2"
             # fi
 
-            # if [ $i -lt 1 ];then
-            #     let "i=i+1"
-            # else
-            #     let "i=i*2"
-            # fi
+            if [ $i -lt 32 ];then
+                let "i=i+1"
+            else
+                let "i=i*2"
+            fi
         done
     done
     

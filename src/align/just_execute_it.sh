@@ -14,8 +14,9 @@ align_dir=`pwd`
 
 python3 ${align_dir}/../set_config.py
 cd ${align_dir}
-export target=readrandom_32_65536  # 对齐负载的名称, 例如readrandom_1_65536,oltp_read_write.lua_threads64,normal_nq100000, oltp_delete.lua_threads128等
-echo "\ntarget: $target"
+export target=oltp_point_select.lua_threads64  # 对齐负载的名称, 例如readrandom_1_65536,oltp_read_write.lua_threads64,normal_nq100000, oltp_delete.lua_threads128等
+echo "-------------------------------------"
+echo "--target: $target--"
 python3 ${align_dir}/../lib/generate_set_env.py --target=${target} --directory=${align_dir}
 source ${align_dir}/set_env.sh
 python3 align.py

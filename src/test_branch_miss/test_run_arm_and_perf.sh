@@ -35,8 +35,8 @@ do
     # else
     #     let "i=i+1"
     # fi
-    let "i=i+1"
-    # let "i=i+10"
+    # let "i=i+1"
+    let "i=i+10"
 done
 python3 ${root_dir}/parse_perf_stat_westmere.py
 

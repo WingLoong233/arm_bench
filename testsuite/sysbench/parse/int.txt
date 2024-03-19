@@ -1,7 +1,7 @@
 ,0
 oltp_delete.lua_threads64,0.6605729608644448
 oltp_update_non_index.lua_threads128,0.6660495384920005
-oltp_point_select.lua_threads64,0.6810458012595535
+oltp_point_select.lua_threads64,0.4463538040036588
 oltp_write_only.lua_threads64,0.644438049199556
 oltp_update_non_index.lua_threads64,0.6670887192165639
 oltp_write_only.lua_threads128,0.6313924986861772
@@ -9,7 +9,7 @@ select_random_ranges.lua_threads64,0.4834197319479874
 oltp_read_only.lua_threads64,0.5267752056577854
 oltp_update_index.lua_threads64,0.6038739497942346
 oltp_insert.lua_threads128,0.7015921391226106
-oltp_point_select.lua_threads128,0.6483474908978529
+oltp_point_select.lua_threads128,0.49592265870938057
 oltp_delete.lua_threads128,0.6665638594368919
 select_random_points.lua_threads64,0.5332122001816169
 select_random_ranges.lua_threads128,0.47537129842014403

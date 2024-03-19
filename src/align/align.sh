@@ -13,25 +13,16 @@ li2=("oltp_write_only.lua_threads128" "oltp_read_only.lua_threads64" "oltp_inser
     "oltp_update_index.lua_threads64" "oltp_read_write.lua_threads128")
 li3=("partition_nq300000" "normal_nq300000" "normal_nq200000" "normal_nq100000" "partition_nq200000" "partition_nq100000")
 
-for target in ${li1[*]}
-do
-    echo "${target}"
-    python3 ${cur_dir}/../lib/generate_set_env.py --target=${target} --directory=${cur_dir}
-    export target
-    source ${cur_dir}/set_env.sh
-    python3 align.py
-done
-
-# for target in ${li2[*]}
+# for target in ${li1[*]}
 # do
-#     echo "${target}"
+#     echo "target: ${target}"
 #     python3 ${cur_dir}/../lib/generate_set_env.py --target=${target} --directory=${cur_dir}
 #     export target
 #     source ${cur_dir}/set_env.sh
 #     python3 align.py
 # done
 
-for target in ${li3[*]}
+for target in ${li2[*]}
 do
     echo "target: ${target}"
     python3 ${cur_dir}/../lib/generate_set_env.py --target=${target} --directory=${cur_dir}
@@ -39,4 +30,13 @@ do
     source ${cur_dir}/set_env.sh
     python3 align.py
 done
+
+# for target in ${li3[*]}
+# do
+#     echo "target: ${target}"
+#     python3 ${cur_dir}/../lib/generate_set_env.py --target=${target} --directory=${cur_dir}
+#     export target
+#     source ${cur_dir}/set_env.sh
+#     python3 align.py
+# done
 

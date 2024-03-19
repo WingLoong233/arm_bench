@@ -94,7 +94,7 @@ do
 
 
     if [ $i -lt 16 ]; then
-        let "i=i*2"
+        let "i=i+1"
     elif [ $i -lt 64 ]; then
         let "i=i+1"
     # elif [ $i -lt 128 ]; then
@@ -129,7 +129,7 @@ do
 
 
     if [ $i -lt 16 ]; then
-        let "i=i*2"
+        let "i=i+1"
     elif [ $i -lt 64 ]; then
         let "i=i+1"
     # elif [ $i -lt 128 ]; then

@@ -1,28 +1,28 @@
-        2096455563      INST_RETIRED                                                                      ( +-  0.00% )
-        1724445690      CPU_CYCLES                                                                     ( +-  0.02% )
-           2455615      BR_MIS_PRED_RETIRED                                                                     ( +-  2.19% )
-         150076387      BR_RETIRED                                                                     ( +-  0.11% )
+        1444149851      INST_RETIRED                                                            ( +-  0.06% )
+        8846719758      CPU_CYCLES                                                           ( +-  0.43% )
+          59201909      BR_MIS_PRED_RETIRED                                                           ( +-  0.69% )
+         332813653      BR_RETIRED                                                           ( +-  0.07% )
 
-          10103055      L1D_CACHE_REFILL                                                                      ( +-  0.02% )
-         723115881      L1D_CACHE                                                                      ( +-  0.00% )
-           5427176      L1I_CACHE_REFILL                                                                      ( +-  0.16% )
-         600544898      L1I_CACHE                                                                     ( +-  0.12% )
+          55306054      L1D_CACHE_REFILL                                                            ( +-  0.20% )
+         770664536      L1D_CACHE                                                            ( +-  0.03% )
+         133462727      L1I_CACHE_REFILL                                                            ( +-  0.09% )
+        1113111801      L1I_CACHE                                                           ( +-  0.98% )
 
-             15827      L2D_CACHE_REFILL                                                                     ( +- 15.54% )
-          43965032      L2D_CACHE                                                                     ( +-  4.77% )
-                 0      LL_CACHE_MISS_RD                                                                   
-                 0      LL_CACHE_RD                                                                   
-                 0      L2TLB_REQ                                                                   
+          61023356      L2D_CACHE_REFILL                                                           ( +-  0.10% )
+         723594519      L2D_CACHE                                                           ( +-  0.12% )
+                 0      LL_CACHE_MISS_RD                                                         
+                 0      LL_CACHE_RD                                                         
+                 0      L2TLB_REQ                                                         
 
-            994044      L1D_TLB_REFILL                                                                      ( +-  0.01% )
-                 0      L1D_TLB                                                                   
-           1139756      L1I_TLB_REFILL                                                                      ( +-  0.17% )
-                 0      L1I_TLB                                                                   
-                 0      L2TLB_REFILL                                                                   
+           7520396      L1D_TLB_REFILL                                                            ( +-  2.33% )
+                 0      L1D_TLB                                                         
+          57680164      L1I_TLB_REFILL                                                            ( +-  0.23% )
+                 0      L1I_TLB                                                         
+                 0      L2TLB_REFILL                                                         
 
-         476442404      LD_SPEC                                                                     ( +-  0.01% )
-         247705614      ST_SPEC                                                                     ( +-  0.13% )
-        1263664114      DP_SPEC                                                                     ( +-  0.01% )
-                 0      VFP_SPEC                                                                   
-            706588      ASE_SPEC                                                                     ( +-  0.00% )
+         528744317      LD_SPEC                                                           ( +-  0.02% )
+         250112233      ST_SPEC                                                           ( +-  0.00% )
+         657986557      DP_SPEC                                                           ( +-  0.05% )
+                 0      VFP_SPEC                                                         
+               169      ASE_SPEC                                                           ( +-  5.30% )
 
