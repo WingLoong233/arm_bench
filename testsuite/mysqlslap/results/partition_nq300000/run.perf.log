@@ -1,8 +1,0 @@
-Benchmark
-	Running for engine innodb
-	Average number of seconds to run all queries: 5528.812 seconds
-	Minimum number of seconds to run all queries: 5528.812 seconds
-	Maximum number of seconds to run all queries: 5528.812 seconds
-	Number of clients running queries: 100
-	Average number of queries per client: 3000
-
